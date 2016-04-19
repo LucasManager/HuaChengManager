@@ -1,0 +1,748 @@
+<%@page import="com.cmdb.entity.CIProject"%>
+<%@page import="java.util.List"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <title>图标展示</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="../style/table.css">
+        <link rel="stylesheet" type="text/css" href="../style/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="../style/default.css">
+        <link rel="stylesheet" href="../style/font-awesome.min.css">
+		<link href="../style/components.css" id="style_components" rel="stylesheet" type="text/css"/>
+       <style>
+			.div_search_style{background:#364150;float:right}
+			.row_top_style{background:#364150;margin-bottom:30px}
+		</style>
+        <script>
+		
+		//条形图
+        var array_bar=new Array();     
+	var data1 = [
+                [10, 10],
+                [20, 20],
+                [30, 30],
+                [40, 40],
+                [50, 50]
+            ];
+
+            var options = {
+                series: {
+                    bars: {
+                        show: true
+                    }
+                },
+                bars: {
+                    horizontal: true,
+                    barWidth: 6,
+                    lineWidth: 0, // in pixels
+                    shadowSize: 0,
+                    align: 'left'
+                },
+                grid: {
+                    tickColor: "#eee",
+                    borderColor: "#eee",
+                    borderWidth: 1
+                }
+            };
+            
+	        array_bar[0]=data1;
+	        array_bar[1]=options;
+           
+		//折线图
+                function randValue() {
+                    return (Math.floor(Math.random() * (1 + 40 - 20))) + 20;
+                }
+		        var chart_2_array=new Array();
+                var pageviews = [
+                    [1, randValue()],
+                    [2, randValue()],
+                    [3, 2 + randValue()],
+                    [4, 3 + randValue()],
+                    [5, 5 + randValue()],
+                    [6, 10 + randValue()],
+                    [7, 15 + randValue()],
+                    [8, 20 + randValue()],
+                    [9, 25 + randValue()],
+                    [10, 30 + randValue()],
+                    [11, 35 + randValue()],
+                    [12, 25 + randValue()],
+                    [13, 15 + randValue()],
+                    [14, 20 + randValue()],
+                    [15, 45 + randValue()],
+                    [16, 50 + randValue()],
+                    [17, 65 + randValue()],
+                    [18, 70 + randValue()],
+                    [19, 85 + randValue()],
+                    [20, 80 + randValue()],
+                    [21, 75 + randValue()],
+                    [22, 80 + randValue()],
+                    [23, 75 + randValue()],
+                    [24, 70 + randValue()],
+                    [25, 65 + randValue()],
+                    [26, 75 + randValue()],
+                    [27, 80 + randValue()],
+                    [28, 85 + randValue()],
+                    [29, 90 + randValue()],
+                    [30, 95 + randValue()]
+                ];
+                var visitors = [
+                    [1, randValue() - 5],
+                    [2, randValue() - 5],
+                    [3, randValue() - 5],
+                    [4, 6 + randValue()],
+                    [5, 5 + randValue()],
+                    [6, 20 + randValue()],
+                    [7, 25 + randValue()],
+                    [8, 36 + randValue()],
+                    [9, 26 + randValue()],
+                    [10, 38 + randValue()],
+                    [11, 39 + randValue()],
+                    [12, 50 + randValue()],
+                    [13, 51 + randValue()],
+                    [14, 12 + randValue()],
+                    [15, 13 + randValue()],
+                    [16, 14 + randValue()],
+                    [17, 15 + randValue()],
+                    [18, 15 + randValue()],
+                    [19, 16 + randValue()],
+                    [20, 17 + randValue()],
+                    [21, 18 + randValue()],
+                    [22, 19 + randValue()],
+                    [23, 20 + randValue()],
+                    [24, 21 + randValue()],
+                    [25, 14 + randValue()],
+                    [26, 24 + randValue()],
+                    [27, 25 + randValue()],
+                    [28, 26 + randValue()],
+                    [29, 27 + randValue()],
+                    [30, 31 + randValue()]
+                ];
+               chart_2_array[0]=pageviews;
+	       chart_2_array[1]=visitors;
+
+            //柱状图
+            var randomScalingFactor = function () {
+                return Math.round(Math.random() * 100)
+            };
+            var barChartData = {
+                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                datasets: [
+                    {
+                        fillColor: "rgba(220,220,220,0.5)",
+                        strokeColor: "rgba(220,220,220,0.8)",
+                        highlightFill: "rgba(220,220,220,0.75)",
+                        highlightStroke: "rgba(220,220,220,1)",
+                        data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()]
+                    },
+                    {
+                        fillColor: "rgba(151,187,205,0.5)",
+                        strokeColor: "rgba(151,187,205,0.8)",
+                        highlightFill: "rgba(151,187,205,0.75)",
+                        highlightStroke: "rgba(151,187,205,1)",
+                        data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()]
+                    }
+                ]
+
+            }
+            //线形图
+            var lineChartData = {
+                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                datasets: [{
+                        label: "My First dataset",
+                        fillColor: "rgba(220,220,220,0.2)",
+                        strokeColor: "rgba(220,220,220,1)",
+                        pointColor: "rgba(220,220,220,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(220,220,220,1)",
+                        data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()]
+                    }, {
+                        label: "My Second dataset",
+                        fillColor: "rgba(151,187,205,0.2)",
+                        strokeColor: "rgba(151,187,205,1)",
+                        pointColor: "rgba(151,187,205,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(151,187,205,1)",
+                        data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()]
+                    }]
+            };
+            //雷达图
+            var radarChartData = {
+                labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running","吃"],
+                datasets: [
+                    {
+                        label: "My First dataset",
+                        fillColor: "rgba(220,220,220,0.2)",
+                        strokeColor: "rgba(220,220,220,1)",
+                        pointColor: "rgba(220,220,220,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(220,220,220,1)",
+                        data: [65, 59, 90, 81, 56, 55, 40,100]
+                    },
+                    {
+                        label: "My Second dataset",
+                        fillColor: "rgba(151,187,205,0.2)",
+                        strokeColor: "rgba(151,187,205,1)",
+                        pointColor: "rgba(151,187,205,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(151,187,205,1)",
+                        data: [28, 48, 40, 19, 96, 27, 100,10]
+                    }
+//                     },
+//                     {
+//                         label: "My Second dataset",
+//                         fillColor: "rgba(151,187,205,0.2)",
+//                         strokeColor: "rgba(151,187,205,1)",
+//                         pointColor: "rgba(151,187,205,1)",
+//                         pointStrokeColor: "#fff",
+//                         pointHighlightFill: "#fff",
+//                         pointHighlightStroke: "rgba(151,187,205,1)",
+//                         data: [43, 23, 42, 54, 12, 63, 142]
+//                     }
+                ]
+            };
+
+            //饼状图
+            var doughnutData = [
+                {
+                    value: 300,
+                    color: "#F7464A",
+                    highlight: "#FF5A5E",
+                    label: "Red"
+                },
+                {
+                    value: 50,
+                    color: "#46BFBD",
+                    highlight: "#5AD3D1",
+                    label: "Green"
+                },
+                {
+                    value: 100,
+                    color: "#FDB45C",
+                    highlight: "#FFC870",
+                    label: "Yellow"
+                },
+                {
+                    value: 40,
+                    color: "#949FB1",
+                    highlight: "#A8B3C5",
+                    label: "Grey"
+                },
+                {
+                    value: 120,
+                    color: "#4D5360",
+                    highlight: "#616774",
+                    label: "Dark Grey"
+                }
+
+            ];
+//             window.onload = function () {
+//                 var ctx = document.getElementById("canvas").getContext("2d");
+//                 window.myBar = new Chart(ctx).Bar(barChartData, {responsive: true});
+// 				$('#main').find('div.htmleaf-content').css('display','none').eq(0).css('display','block')
+				
+//             }
+
+        </script>
+    </head>
+    <body>
+        <ul class="nav nav-pills search_top_back">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#" id="search_pictrue">搜索图表</a></li>
+            <!--<li role="presentation"><a href="#" id="picture_type">选择类型</a></li>-->
+        </ul>
+        <div>
+        	
+<!--         	<select class="input_sreach_picture float_left" id="searchType" onchange="choseSearchType();" class="input_sreach_picture float_left"> -->
+<!--         		<option value="0" >查询条件</option> -->
+<!--         		<option value="1" title="输入项目条件">项目查看</option> -->
+<!--         		<option value="2" title="输入CI条件">CI查看</option> -->
+<!--         	</select> -->
+        	<select class="input_sreach_picture float_left" id="chosed" onchange="checkType();" class="input_sreach_picture float_left">
+					<option value="0">选择类型</option>
+					<option value="1">柱形图</option>
+					<option value="2">饼状图</option>
+					<option value="3">线形图</option>
+					<option value="4">雷达图</option>
+					<option value="5">折线图</option>
+				</select>
+            	<input id="choseType_1" onclick="show_mian('canvas', barChartData)" hidden="hidden" value="canvas">
+            	<input id="choseType_2" onclick="show_mian('chart-area', doughnutData)" hidden="hidden" value="chart-area">
+            	<input id="choseType_3" onclick="show_mian('chart2', lineChartData)" hidden="hidden" value="chart2">
+            	<input id="choseType_4" onclick="show_mian(canvas2, radarChartData)" hidden="hidden" value="canvas2">
+            	<input id="choseType_5" onclick="show_mian(chart_2,chart_2_array)" hidden="hidden" value="chart_2">
+        </div>
+<!--         <div id="picture_top_search"> -->
+<!--             <form action="../../chart/checkDataByProject.do" method="post"> -->
+<!--                 <input type="text" name="project_id" class="input_sreach_picture float_left" placeholder=" 请输入项目查找"> -->
+<!--                 <input type="text" name="ci_name" class="input_sreach_picture float_left" placeholder=" 请输入名称查找"> -->
+<!--                 <input type="text" name="ci_attribute"  class="input_sreach_picture float_left" placeholder=" 请输入属性查找"> -->
+<!--                 <input type="text" name="job"  class="input_sreach_picture float_left" placeholder=" 请输入开始时间查找"> -->
+<!-- 				<input type="submit" value="搜索" class="btn btn-primary float_right input_submit_picture btn_mr_30"> -->
+<!-- 			</form> -->
+<!--         </div> -->
+        
+        <div id="ci_chose_search">
+            <form id="search_term" action="../../chart/checkDataByCi.do" method="post">
+<!--                 <input type="text" name="ci_name" class="input_sreach_picture float_left" placeholder=" 请输入CI名"> -->
+                <input type="text" name="ci_type" class="input_sreach_picture float_left" placeholder=" 请输入CI类型">
+<!--                 <input type="text" name="ci_attribute"  class="input_sreach_picture float_left" placeholder=" 请输入属性查找"> -->
+				<input type="button" onclick="getSearchTerm()" value="搜索" class="btn btn-primary float_right input_submit_picture btn_mr_30">
+			</form>
+        </div>
+
+        <div id="main">
+            <div class="htmleaf-content">
+                <div class="demo-chat">
+                    <canvas id="canvas" height="400" width="600"></canvas>
+                </div>
+            </div>
+            <div class="htmleaf-content" >
+                <div class="demo-chat">
+                    <canvas id="chart-area" width="500" height="350"/>
+                </div>
+            </div>
+            <div class="htmleaf-content">
+                <div class="demo-chat">
+                    <canvas id="chart2" width="400" height="250" />
+                </div>
+                <div id="chartjs-tooltip"></div>
+            </div>
+            <div class="htmleaf-content">
+                <div class="demo-chat">
+                    <canvas id="canvas2" height="350" width="500"></canvas>
+                </div>
+            </div>
+	        <div class="htmleaf-content">
+				<div class="demo-chat">
+					<div id="chart_2" class="chart"></div>
+			    </div>
+            </div>
+			<div class="htmleaf-content">
+				<div class="demo-chat">
+					<div id="chart_1_2" class="chart"></div>
+				</div>
+            </div>
+			<div class="htmleaf-content">
+				<div class="demo-chat">
+					<div id="chart_2_2" class="chart" style="height:400px;"></div>
+				</div>
+            </div>
+        </div>
+        <script src="../bootstrap-3.3.5-dist/js/jquery.min.js"></script>
+		<script src="../bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+		<script src="../js/jquery.flot.min.js"></script>
+		<script src="../js/jquery.flot.resize.min.js"></script>
+		<script src="../js/jquery.flot.pie.min.js"></script>
+		<script src="../js/jquery.flot.stack.min.js"></script>
+		<script src="../js/jquery.flot.crosshair.min.js"></script>
+		<script src="../js/jquery.flot.categories.min.js" type="text/javascript"></script>
+		<script src="../js/amcharts.js" type="text/javascript"></script>
+		<script src="../js/serial.js" type="text/javascript"></script>
+		<script src="../js/pie.js" type="text/javascript"></script>
+		<script src="../js/radar.js" type="text/javascript"></script>
+		<script src="../js/light.js" type="text/javascript"></script>
+		<script src="../js/patterns.js" type="text/javascript"></script>
+		<script src="../js/chalk.js" type="text/javascript"></script>
+		<script src="../js/metronic.js" type="text/javascript"></script>
+		<script src="../js/layout.js" type="text/javascript"></script>
+		<script src="../js/quick-sidebar.js" type="text/javascript"></script>
+		<script src="../js/demo.js" type="text/javascript"></script>
+		<script src="../js/charts-flotcharts.js"></script>
+		<script src="../js/charts-amcharts.js"></script>
+		<script src="../js/Chart.js"></script>
+		<script src="../js/table.js"></script>
+        <script>
+			jQuery(document).ready(function() {
+			   Metronic.init(); // init metronic core components
+			   Layout.init(); // init current layout
+			   QuickSidebar.init();
+			   Demo.init(); // init demo features
+			   //ChartsAmcharts.init();
+			   ChartsFlotcharts.init();
+			   ChartsFlotcharts.initCharts();
+			   ChartsFlotcharts.initPieCharts();
+			   ChartsFlotcharts.initBarCharts();
+			});
+
+			$('#search_pictrue').click(function(){
+				$('#picture_top_search').show();
+			})
+			//混合型图
+		   var chart_mix_array = AmCharts.makeChart("chart_2_2", {
+            "type": "serial",
+            "theme": "light",
+
+            "fontFamily": 'Open Sans',
+            "color":    '#888888',
+
+            "legend": {
+                "equalWidths": false,
+                "useGraphSettings": true,
+                "valueAlign": "left",
+                "valueWidth": 120
+            },
+            "dataProvider": [{
+                "date": "2012-01-01",
+                "distance": 227,
+                "townName": "New York",
+                "townName2": "New York",
+                "townSize": 25,
+                "latitude": 40.71,
+                "duration": 408
+            }, {
+                "date": "2012-01-02",
+                "distance": 371,
+                "townName": "Washington",
+                "townSize": 14,
+                "latitude": 38.89,
+                "duration": 482
+            }, {
+                "date": "2012-01-03",
+                "distance": 433,
+                "townName": "Wilmington",
+                "townSize": 6,
+                "latitude": 34.22,
+                "duration": 562
+            }, {
+                "date": "2012-01-04",
+                "distance": 345,
+                "townName": "Jacksonville",
+                "townSize": 7,
+                "latitude": 30.35,
+                "duration": 379
+            }, {
+                "date": "2012-01-05",
+                "distance": 480,
+                "townName": "Miami",
+                "townName2": "Miami",
+                "townSize": 10,
+                "latitude": 25.83,
+                "duration": 501
+            }, {
+                "date": "2012-01-06",
+                "distance": 386,
+                "townName": "Tallahassee",
+                "townSize": 7,
+                "latitude": 30.46,
+                "duration": 443
+            }, {
+                "date": "2012-01-07",
+                "distance": 348,
+                "townName": "New Orleans",
+                "townSize": 10,
+                "latitude": 29.94,
+                "duration": 405
+            }, {
+                "date": "2012-01-08",
+                "distance": 238,
+                "townName": "Houston",
+                "townName2": "Houston",
+                "townSize": 16,
+                "latitude": 29.76,
+                "duration": 309
+            }, {
+                "date": "2012-01-09",
+                "distance": 218,
+                "townName": "Dalas",
+                "townSize": 17,
+                "latitude": 32.8,
+                "duration": 287
+            }, {
+                "date": "2012-01-10",
+                "distance": 349,
+                "townName": "Oklahoma City",
+                "townSize": 11,
+                "latitude": 35.49,
+                "duration": 485
+            }, {
+                "date": "2012-01-11",
+                "distance": 603,
+                "townName": "Kansas City",
+                "townSize": 10,
+                "latitude": 39.1,
+                "duration": 890
+            }, {
+                "date": "2012-01-12",
+                "distance": 534,
+                "townName": "Denver",
+                "townName2": "Denver",
+                "townSize": 18,
+                "latitude": 39.74,
+                "duration": 810
+            }, {
+                "date": "2012-01-13",
+                "townName": "Salt Lake City",
+                "townSize": 12,
+                "distance": 425,
+                "duration": 670,
+                "latitude": 40.75,
+                "dashLength": 8,
+                "alpha": 0.4
+            }, {
+                "date": "2012-01-14",
+                "latitude": 36.1,
+                "duration": 470,
+                "townName": "Las Vegas",
+                "townName2": "Las Vegas"
+            }, {
+                "date": "2012-01-15"
+            }, {
+                "date": "2012-01-16"
+            }, {
+                "date": "2012-01-17"
+            }, {
+                "date": "2012-01-18"
+            }, {
+                "date": "2012-01-19"
+            }],
+            "valueAxes": [{
+                "id": "distanceAxis",
+                "axisAlpha": 0,
+                "gridAlpha": 0,
+                "position": "left",
+                "title": "distance"
+            }, {
+                "id": "latitudeAxis",
+                "axisAlpha": 0,
+                "gridAlpha": 0,
+                "labelsEnabled": false,
+                "position": "right"
+            }, {
+                "id": "durationAxis",
+                "duration": "mm",
+                "durationUnits": {
+                    "hh": "h ",
+                    "mm": "min"
+                },
+                "axisAlpha": 0,
+                "gridAlpha": 0,
+                "inside": true,
+                "position": "right",
+                "title": "duration"
+            }],
+            "graphs": [{
+                "alphaField": "alpha",
+                "balloonText": "[[value]] miles",
+                "dashLengthField": "dashLength",
+                "fillAlphas": 0.7,
+                "legendPeriodValueText": "total: [[value.sum]] mi",
+                "legendValueText": "[[value]] mi",
+                "title": "distance",
+                "type": "column",
+                "valueField": "distance",
+                "valueAxis": "distanceAxis"
+            }, {
+                "balloonText": "latitude:[[value]]",
+                "bullet": "round",
+                "bulletBorderAlpha": 1,
+                "useLineColorForBulletBorder": true,
+                "bulletColor": "#FFFFFF",
+                "bulletSizeField": "townSize",
+                "dashLengthField": "dashLength",
+                "descriptionField": "townName",
+                "labelPosition": "right",
+                "labelText": "[[townName2]]",
+                "legendValueText": "[[description]]/[[value]]",
+                "title": "latitude/city",
+                "fillAlphas": 0,
+                "valueField": "latitude",
+                "valueAxis": "latitudeAxis"
+            }, {
+                "bullet": "square",
+                "bulletBorderAlpha": 1,
+                "bulletBorderThickness": 1,
+                "dashLengthField": "dashLength",
+                "legendValueText": "[[value]]",
+                "title": "duration",
+                "fillAlphas": 0,
+                "valueField": "duration",
+                "valueAxis": "durationAxis"
+            }],
+            "chartCursor": {
+                "categoryBalloonDateFormat": "DD",
+                "cursorAlpha": 0.1,
+                "cursorColor": "#000000",
+                "fullWidth": true,
+                "valueBalloonsEnabled": false,
+                "zoomable": false
+            },
+            "dataDateFormat": "YYYY-MM-DD",
+            "categoryField": "date",
+            "categoryAxis": {
+                "dateFormats": [{
+                    "period": "DD",
+                    "format": "DD"
+                }, {
+                    "period": "WW",
+                    "format": "MMM DD"
+                }, {
+                    "period": "MM",
+                    "format": "MMM"
+                }, {
+                    "period": "YYYY",
+                    "format": "YYYY"
+                }],
+                "parseDates": true,
+                "autoGridCount": false,
+                "axisColor": "#555555",
+                "gridAlpha": 0.1,
+                "gridColor": "#FFFFFF",
+                "gridCount": 50
+            },
+            "exportConfig": {
+                "menuBottom": "20px",
+                "menuRight": "22px",
+                "menuItems": [{
+                    "icon": Metronic.getGlobalPluginsPath() + "amcharts/amcharts/images/export.png",
+                    "format": 'png'
+                }]
+            }
+        });
+			
+		</script>
+		<script type="text/javascript">
+			//饼状图颜色定义
+			var getColorMap=function(){
+				var Eum={};
+				Eum["010"]="#9AFF9A";
+				Eum["1020"]="#1874CD";
+				Eum["2030"]="#008B00";
+				Eum["3040"]="#87CEEB";
+				Eum["5080"]="#FFB90F";
+				Eum["80100"]="#EE0000";
+				Eum["unUse"]="#76EE00";
+				return Eum;
+			}
+			
+			//查询返回的数据暂存 
+			var searchResult;
+			//获取随机颜色 
+			var getRandomColor = function() {
+			    return '#' + (function(color) { 
+			        //这个写法比较有意思,Math.floor(Math.random()*16);返回的是一个小于或等于16的数.然后作为0123456789abcdef的下标,这样每次就会得到一个这个字符串当中的一个字符
+			    return (color += '0123456789abcdef' [Math.floor(Math.random() * 16)]) 
+			        //然后判断这个新字符串的长度是否到6,因为16进制的颜色是由6个字符组成的,如果到6了,就返回这6个字符拼成的字符串,如果没有就执行arguments.callee(color)也就是函数本身.
+			        && (color.length == 6) ? color: arguments.callee(color); //将''字符串传给color
+			    })('');
+			}
+			
+			//获取颜色高亮
+			var getHighColor = function(color){
+				var o=color.replace("#","0x")
+				var sColorChange = []; 
+				for(var i=1;i<7;i+=2){
+					sColorChange.push(parseInt(o.slice(i,i+2))-5);
+				}
+// 				var calcColor=f;
+				var returnColor="#"+calcColor.toString(16);
+				return returnColor;
+			}
+			//选择图表展示类型 
+			function checkType() {
+				var check = $("#chosed").val();
+				switch (check) {
+				case "1":   
+					for (var i = 0; i < searchResult.length; i++) {
+						labels[i] = searchResult[i].name;
+						datas[i] = searchResult[i].usage_amount;
+					}
+					var barChartData = {
+						labels : labels,
+						datasets : [
+						{
+							fillColor : "rgba(151,187,205,0.5)",
+							strokeColor : "rgba(151,187,205,0.8)",
+							highlightFill : "rgba(151,187,205,0.75)",
+							highlightStroke : "rgba(151,187,205,1)",
+							data : datas
+						} ]
+					}
+					show_mian("canvas", barChartData);
+// 					$("#choseType_1").click();
+					break;
+				case "2":
+					var doughnut=new Array();
+					for(i=0;i<searchResult.length;i++){
+						var color=getRandomColor();
+						var map={};
+						map["value"]=searchResult[i].usage_amount;
+						map["color"]=color;
+						map["highlight"]=getHighColor(color);
+						map["label"]=searchResult[i].name;
+						doughnut[i]=map;
+// 						doughnut[i]="{value:"+searchResult[i].usage_amount+",color:'"+color+"',highlight:'"+getHighColor(color)+"',label:'"+searchResult[i].name+"'}"
+					}
+					alert(doughnut);
+					show_mian("chart-area", doughnut);
+// 					$("#choseType_2").click();
+					break;
+				case "3":
+					$("#choseType_3").click();
+					break;
+				case "4":
+					$("#choseType_4").click();
+					break;
+				case "5":
+					$("#choseType_5").click();
+					break;
+				}
+			}
+
+			function choseSearchType() {
+				var chose = $("#searchType").val();
+				switch (chose) {
+				case "1":
+					$('#picture_top_search').show();
+					break;
+				case "2":
+					$('#ci_chose_search').show();
+					break;
+				}
+			}
+
+			function getSearchTerm() {
+				$.ajax({
+					type : "POST",
+					url : "../../chart/checkDataByCi.do",
+					data : $("#search_term").serialize(),
+					dataType : "json",
+					success : function(data) {
+						searchResult=data;
+						$("#chosedData").val(data);
+						var labels = new Array();
+						var datas = new Array();
+						for (var i = 0; i < data.length; i++) {
+							labels[i] = data[i].name;
+							datas[i] = data[i].usage_amount;
+						}
+						var barChartData = {
+							labels : labels,
+							datasets : [
+
+							{
+								fillColor : "rgba(151,187,205,0.5)",
+								strokeColor : "rgba(151,187,205,0.8)",
+								highlightFill : "rgba(151,187,205,0.75)",
+								highlightStroke : "rgba(151,187,205,1)",
+								data : datas
+							} ]
+
+						}
+						show_mian("canvas", barChartData);
+					}
+				});
+			}
+		</script>
+    </body>
+</html>
