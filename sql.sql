@@ -29,13 +29,18 @@ create table car(
  */
 create table car_parts(
 	id 			int primary key ,
-	name 		varchar2(100),
+	name 		varchar2(100),	
 	type 		varchar2(20),
 	position 	varchar2(200),
 	desc 		varchar2(500),
 	UTD1 		varchar2(200),
 	UTD2 		varchar2(200)
 )
+/**
+ *如数据库中已存在此类型的配件，则提示 该配件已存在，需要查询得到该配件  点击修改，
+ *新增  进货记录即可
+ * 
+ */
 
 /**
  * 库存管理
@@ -43,7 +48,8 @@ create table car_parts(
 create table parts_store(
 	id 				int primary key,
 	car_parts_id 	int foreign key references car_parts(id),
-	increase_Date 	varchar2(20),
+	parts_num 	varchar2(100),--型号
+	increase_Date 	varchar2(20), --进货时间
 	num				int,--进货总量
 	surplus_num		int,--剩余量
 	unit_price 		int,--单价
