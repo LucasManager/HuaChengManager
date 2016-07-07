@@ -100,7 +100,7 @@
                             <tr>
 
                                 <td colspan="6">
-								<%@include file="../menu/page.jsp" %>
+<%-- 								<%@include file="../menu/page.jsp" %> --%>
                                 </td>
                             </tr>
                         </tfoot>

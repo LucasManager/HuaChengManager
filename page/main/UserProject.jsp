@@ -68,7 +68,7 @@
                         <tr>
                             <td colspan="6">
 	                            <form role="form" id="searchTerms" name="searchTerms" action="../../userproject/ShowUserProject.do">
-									<%@include file="../menu/page.jsp" %>
+<%-- 									<%@include file="../menu/page.jsp" %> --%>
 								</form>
                             </td>
                         </tr>

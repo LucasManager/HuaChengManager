@@ -40,7 +40,7 @@
 				<tfoot>
 					<tr>
 						<td colspan="5">
-						<%@include file="../../menu/page.jsp" %>
+<%-- 						<%@include file="../../menu/page.jsp" %> --%>
 						</td>
 					</tr>
 				</tfoot>
