@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../style/table.css">
+    <link rel="stylesheet" href="../style/components.css">
+    <link rel="stylesheet" href="../style/style.min.css">
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap-datetimepicker.min.css">
+    <link href="../main/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script src="../bootstrap-3.3.5-dist/js/jquery.min.js"></script>
+    <script src="../bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../bootstrap-3.3.5-dist/js/bootstrap-datetimepicker.js"></script>
+    <script src="../bootstrap-3.3.5-dist/js/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script type="text/javascript" src="../bootstrap-3.3.5-dist/js/jquery.PrintArea.js"></script>
+    <title></title>
+    <script>
+        function getPrintPage(i) {
+            $("#watermark").css("z-index", "-1");
+            switch (i) {
+                case 1:
+                    $("#content").load("../printPage/lackPrint.html");
+                    break;
+                case 2:
+                    $("#content").load("../printPage/servicePrint.html");
+                    break;
+            }
+        }
+        $(document).ready(function () {
+            $("#printBtn").click(function (e) {
+                $("#watermark").css("z-index", "2");
+                $("#printDemo").printArea();
+            });
+        })
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="panel-heading">
+        <h1>打印清单</h1>
+    </div>
+    <div class="panel-body">
+        <button class="btn btn-primary col-sm-2" onclick="getPrintPage(1)">缺件表</button>
+        <button class="btn btn-primary col-sm-2" onclick="getPrintPage(2)">服务清单</button>
+    </div>
+    <div class="panel-footer">
+        <button class="btn btn-primary" id="printBtn">打印</button>
+    </div>
+
+    <div id="printDemo" class="container text-center">
+        <div style="z-index:-1;opacity: 0.4;position: absolute;width: 100%;align-content: center" id="watermark">
+            <img src="../printPage/1.gif">
+        </div>
+        <div id="content">
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
