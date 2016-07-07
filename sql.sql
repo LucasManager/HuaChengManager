@@ -48,12 +48,13 @@ create table car_parts(
 create table parts_store(
 	id 				int primary key,
 	car_parts_id 	int foreign key references car_parts(id),
-	parts_num 	varchar2(100),--型号
+	parts_num 		varchar2(100),--型号
 	increase_Date 	varchar2(20), --进货时间
 	num				int,--进货总量
 	surplus_num		int,--剩余量
-	unit_price 		int,--单价
+	unit_price 		int,--进货单价
 	sum_price 		int,--此次进货的总的价格
+	sell_unit_price int,-- 所卖单价
 	desc 			varchar2(200),
 	UTD1 			varchar2(200),
 	UTD2 			varchar2(200)
@@ -62,30 +63,56 @@ create table parts_store(
 create table project(
 	id 				int primary key,
 	cust_id 		int foreign key references customer(id),
-	car_parts_id 	int foreign key references car_parts(id),
 	car_id 			int foreign key references car(id),
 	projectType 	varchar2(100),
 	projectName 	varchar2(200),
-	parts_num 		int,
-	parts_unit_price int ,
 	other_price 	int,--若换取配件加维修，则此为维修费用
 	startDate 		varchar2(20),---服务开始时间
 	endDate 		varchar2(20),--服务结束时间
 	outServiceDate 	varchar2(20),--维修保质时间
-	chargePerson	varchar2(100),
+	chargePerson	varchar2(100),--负责人
 	status			varchar(10), --当前项目的状态：已完成(付款成功，则认为该项目已完成)、
 								--未完成(缺件、不可完成、未付款、其他原因，可在备注中说明)
+	isdelete 		int,--逻辑删除标志 1 标识删除
 	desc 			varchar2(200),
 	UTD1 			varchar2(200),
 	UTD2 			varchar2(200)
 )
+-- 配件和服务对应表;   一种配件可以被多个服务使用，一个服务可以选择多个配件：
+create table project_parts(
+	id 				int primary key,
+	projectId		int,-- 对应的服务编号
+	parts_storeId	int, -- 对应的配件编号
+	usedNum			int, -- 当前服务使用的当前配件的个数
+	isdelete		int,--- 逻辑删除标志  
+	UTD1			varchar2(200),
+	UTD2			varchar2(200)
+)
 
+
+
+
+-- 缺件记录表
 create table lack_parts(
 	id int primary key,
-	car_parts_id 	int foreign key references car_parts(id),
 	cust_id 		int foreign key references customer(id),
-	needNum			int,
-	status 			varchar2(10),   ---缺件状态：以补充完成   未补充完成
-
-
+	car_partsName	varchar2(100),
+	parts_num		varchar2(100),--型号
+	carNum			varchar2(100),
+	createDate		varchar2(20),
+	needNum			int,----所需数量
+	status 			varchar2(10),   ---缺件状态：已补充完成   未补充完成
+	desc			varchar2(200),
+	UTD1			varcahr2(200),
+	UTD2			varchar2(200)
 )
+
+
+
+
+
+/*
+1. 钱是否在这上面来计算
+2.点击详情：  显示：
+
+ */

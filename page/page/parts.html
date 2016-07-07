@@ -21,15 +21,34 @@
 	<script>
 
 		$(document).ready(function(){
+			//init
+			$("#bb").load("partsStore.html");
+
 			$('#addPartDate').datetimepicker({
-				language:  'zh-CN'f
+				language:  'zh-CN',
+				format:'yyyy-dd-mm hh:ii:ss',
 				weekStart: 1,
 				todayBtn:  1,
 				autoclose: 1,
 				todayHighlight: 1,
 				startView: 2,
 				forceParse: 0,
-				showMeridian: 1
+				showMeridian: 1,
+				minView:2
+			});
+
+			$("#tabs li a").click(function(e){
+				$(this).parent().parent().find("li").each(function(index,element){
+						element.setAttribute("class","");
+				});
+				$(this).parent().attr("class","active");
+				if(e.target.text=='库存管理')
+				{
+					$("#bb").load("partsStore.html");
+				}else if(e.target.text=='缺件管理')
+				{
+					$("#bb").load("lack_parts.html");
+				}
 			});
 		})
 		function deleteProject(projectId, obj) {
@@ -59,69 +78,17 @@
 <body>
 <div class="height_40"></div>
 <div class="panel panel-default width_960  div_margin_center">
-	<div class="panel-heading">
-		<h3 class="panel-title">库存管理</h3>
-	</div>
-	<div class="panel-body background_F9F7F6">
-		<div class="panel border_364150 width_980  div_margin_center">
-			<form id="searchTerms" action="" method="post" class="margin_0">
-				<div class="height_40 background_364150">
-					<div class="height_40 float_left background_293846">
-						<div class="float_left width_300">
-							<input type="text" name="projectNo" class="object_search argin_l_15" placeholder="配件名称">
-							<input type="text" name="projectName" class="object_search" placeholder="配件型号">
-							<input type="submit" class="input_hide" id="searchButtom">
-						</div>
-						<span onclick="$('#searchButtom').click()" class="table_search_submit">&nbsp;<i class="glyphicon glyphicon-search" style="font-size:18px"></i>&nbsp;</span>
-					</div>
+	<!--<div class="panel-heading">-->
+		<!--<h3 class="panel-title">库存管理</h3>-->
+	<!--</div>-->
+	<ul class="nav nav-tabs" id="tabs">
+		<li role="presentation" class="active"><a href="#">库存管理</a></li>
+		<li role="presentation"><a href="#">缺件管理</a></li>
+	</ul>
+	<div class="panel-body background_F9F7F6" id="bb">
 
-					<span data-toggle="modal" data-target="#addParts" class=" float_right object_addobject" title="新增配件"><i class="glyphicon glyphicon-plus-sign"></i>新增配件</span>
-				</div>
-				<table class="table table-bordered table-hover table-striped">
-					<thead>
-					<tr>
-						<!-- <th class="check_width">
-                            <span class="pointer" onclick="true_cheked(this)"><input type="checkbox" onclick="$(this).parent().click()"></span>
-                        </th> -->
-						<th> 配件名称</th>
-						<th>类型</th>
-						<th>剩余数量</th><!-- 共剩余量-->
-						<th>位置</th>
-						<th>详情</th>
-						<th>描述</th>
-						<th colspan="2">编辑操作</th>
-					</tr>
-					</thead>
-					<tbody id="projectContent">
-						<tr>
-							<td>配件1</td>
-							<td>机械</td>
-							<th>12件</th>
-							<td>3号货架7列2号</td>
-							<th><a>详情</a></th>
-							<th>配件1的描述</th>
-							<td class="td_width_100">
-						<a href="javascript:void(0)" title="增加库存" data-toggle="modal" data-target="#addStore"  onclick="" class="btn-margin_5"><i class="glyphicon glyphicon-plus"></i></a>
-						<a href="javascript:void(0)" title="修改" data-toggle="modal" data-target="#addParts" onclick="findDetailById()"><i class="glyphicon glyphicon-edit "></i></a>
-						<a href="javascript:void(0)" title="删除" onclick="deleteProject()" class="btn-margin_5"><i class="glyphicon glyphicon-trash"></i></a>
-							</td>
-						</tr>
-					</tbody>
-					<tfoot>
-					<tr>
-						<td colspan="8">
-							<button class="btn btn-primary">上一页</button>
-							<button class="btn btn-primary">下一页</button>
-						</td>
-					</tr>
-					</tfoot>
-				</table>
-			</form>
-			<div style="clear:both"></div>
-		</div>
 	</div>
 </div>
-
 
 <div class="modal fade" id="addParts" tabindex="-1" role="dialog" >
 	<div class="modal-dialog" role="document">
@@ -130,27 +97,33 @@
 				<h3>新增配件</h3>
 			</div>
 			<div class="modal-body">
-				<div>
-					<label for="customerName" class="font-16">配件名称：&nbsp;</label>
-					<input type="text" class="width_300 height-auto font-lg" id="carNum" name="carNum" >
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label for="customerName" class="col-sm-3 control-label">配件名称：</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="carNum" name="carNum" >
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="customerName" class="col-sm-3 control-label">类型：</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="carColor" name="carColor">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="customerName" class="col-sm-3 control-label">位置：</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="vin" name="vim">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="customerName" class="col-sm-3 control-label">描述：</label>
+						<div class="col-sm-9">
+							<textarea class="form-control" id="carDesc" name="carDesc"></textarea>
+						</div>
+					</div>
 				</div>
-				<br/>
-				<div class="">
-					<label for="customerName" class="font-16">类&nbsp;&nbsp;型：&nbsp;</label>
-					<input type="text" class="width_300 height-auto font-lg" id="carColor" name="carColor">
-				</div>
-				<br/>
-				<div class="">
-					<label for="customerName" class="font-16">位&nbsp;&nbsp;置：&nbsp;</label>
-					<input type="text" class="width_300 height-auto font-lg" id="vin" name="vim">
-				</div>
-				<br/>
-				<div class="">
-					<label for="customerName" class="font-16">描&nbsp;&nbsp;述：&nbsp;</label>
-					<textarea class="width_300 height-auto font-lg" id="carDesc" name="carDesc"></textarea>
-				</div>
-			</div>
-			<div>
+
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
@@ -160,6 +133,8 @@
 	</div>
 </div>
 
+
+
 <div class="modal fade" id="addStore" tabindex="-1" role="dialog" >
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -167,36 +142,191 @@
 				<h3>配件1 新增库存</h3>
 			</div>
 			<div class="modal-body">
-				<div>进货时间：
-					<div class="controls">
-						<div class="input-prepend input-group">
-										<span class="add-on input-group-addon">
-											<i class="glyphicon glyphicon-calendar fa fa-calendar">
-											</i>
-										</span>
-							<input type="text" style="width: 200px" name="addPartDate" id="addPartDate"
-								   class="form-control" value="" />
+			
+			<form class="form-horizontal">
+				<div class="form-group">
+					<label for="addPartDate" class="col-sm-3 control-label">进货日期：</label>
+					<div class="col-sm-9">
+						<div class="controls">
+							<div class="input-prepend input-group">
+											<span class="add-on input-group-addon">
+												<i class="glyphicon glyphicon-calendar fa fa-calendar">
+												</i>
+											</span>
+								<input type="text" style="width: 200px" name="addPartDate" id="addPartDate" readonly
+									class="form-control" value="" />
+							</div>
 						</div>
 					</div>
 				</div>
-				<br/>
-				<div class="">
-					<label for="carColor" class="font-16">类&nbsp;&nbsp;型：&nbsp;</label>
-					<input type="text" class="width_300 height-auto font-lg" id="carColor" name="carColor">
+				<div class="form-group">
+					<label for="partsType" class="col-sm-3 control-label">类型：</label>
+					<div class="col-sm-9">
+						<input type="email" class="form-control" id="partsType" placeholder="类型">
+					</div>
 				</div>
-				<br/>
-				<div class="">
-					<label for="vin" class="font-16">位&nbsp;&nbsp;置：&nbsp;</label>
-					<input type="text" class="width_300 height-auto font-lg" id="vin" name="vim">
+				<div class="form-group">
+					<label for="partsNum" class="col-sm-3 control-label">本次进货数量：</label>
+					<div class="col-sm-9">
+						<input type="email" class="form-control" id="partsNum" placeholder="本次进货数量">
+					</div>
 				</div>
-				<br/>
-				<div class="">
-					<label for="carDesc" class="font-16">描&nbsp;&nbsp;述：&nbsp;</label>
-					<textarea class="width_300 height-auto font-lg" id="carDesc" name="carDesc"></textarea>
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-3 control-label">进货单价：</label>
+					<div class="col-sm-9">
+						<input type="email" class="form-control" id="partsUnit" placeholder="进货单价">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-3 control-label">进货总价：</label>
+					<div class="col-sm-9">
+						<input type="email" class="form-control" id="inputEmail3" placeholder="进货总价">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-3 control-label">销售单价：</label>
+					<div class="col-sm-9">
+						<input type="email" class="form-control" id="inputEmail3" placeholder="销售单价">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-3 control-label">位置：</label>
+					<div class="col-sm-9">
+						<input type="email" class="form-control" id="inputEmail3" placeholder="货物所在位置">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-3 control-label">描述：</label>
+					<div class="col-sm-9">
+						<textarea class="form-control width_400 height-auto font-lg" id="inputEmail3" placeholder="对当前进货的备注信息"></textarea>
+					</div>
+				</div>
+				
+			</form>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary">确认</button>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div class="modal fade" id="showParts" tabindex="-1" role="dialog" >
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3>配件信息</h3>
+			</div>
+			<div class="modal-body">
+				<div class="panel panel-default">
+					<div class="panel-heading font-16">配件进货信息</div>
+					<!-- Table -->
+					<table class="table table-striped table-hover table-responsive">
+						<thead>
+							<th>进货日期</th>
+							<th>型号</th>
+							<th>进货单价</th>
+							<th>进货总价</th>
+							<th>总量</th>
+							<th>剩余量</th>
+							<th>备注</th>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="col-sm-2">2016-06-11</td>
+								<td class="col-sm-2">XNP0001</td>
+								<td class="col-sm-1">23.1</td>
+								<td class="col-sm-1">10000</td>
+								<td class="col-sm-1">200</td>
+								<td class="col-sm-1">50</td>
+								<td class="col-sm-4">备注信息备注信息备注信息备注信息备注信息</td>
+							</tr>
+							<tr>
+								<td class="col-sm-2">2016-06-11</td>
+								<td class="col-sm-2">XNP0001</td>
+								<td class="col-sm-1">23.1</td>
+								<td class="col-sm-1">10000</td>
+								<td class="col-sm-1">200</td>
+								<td class="col-sm-1">50</td>
+								<td class="col-sm-4">备注信息</td>
+							</tr>
+							<tr>
+								<td class="col-sm-2">2016-06-11</td>
+								<td class="col-sm-2">XNP0001</td>
+								<td class="col-sm-1">23.1</td>
+								<td class="col-sm-1">10000</td>
+								<td class="col-sm-1">200</td>
+								<td class="col-sm-1">50</td>
+								<td class="col-sm-4">备注信息</td>
+							</tr>
+							<tr>
+								<td class="col-sm-2">2016-06-11</td>
+								<td class="col-sm-2">XNP0001</td>
+								<td class="col-sm-1">23.1</td>
+								<td class="col-sm-1">10000</td>
+								<td class="col-sm-1">200</td>
+								<td class="col-sm-1">50</td>
+								<td class="col-sm-4">备注信息</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary">确认</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="addLockParts" tabindex="-1" role="dialog" >
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3>记录缺件</h3>
+			</div>
+			<div class="modal-body">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label for="partsNum" class="col-sm-3 control-label">手机号：</label>
+							<div class="col-sm-9">
+								<input type="email" class="form-control" id="" placeholder="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="partsNum" class="col-sm-3 control-label">车牌号：</label>
+							<div class="col-sm-9">
+								<input type="email" class="form-control" id="" placeholder="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="partsNum" class="col-sm-3 control-label">配件名称：</label>
+							<div class="col-sm-9">
+								<input type="email" class="form-control" id="" placeholder="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="partsNum" class="col-sm-3 control-label">型号：</label>
+							<div class="col-sm-9">
+								<input type="email" class="form-control" id="" placeholder="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="partsNum" class="col-sm-3 control-label">所需数量：</label>
+							<div class="col-sm-9">
+								<input type="email" class="form-control" id="" placeholder="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="partsNum" class="col-sm-3 control-label">描述：</label>
+							<div class="col-sm-9">
+								<textarea type="email" class="form-control" id="" placeholder=""></textarea>
+							</div>
+						</div>
 
-
+					</div>
+			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 				<button type="button" class="btn btn-primary">确认</button>
