@@ -1,0 +1,56 @@
+    <div class="panel border_364150 width_980  div_margin_center">
+        <form id="searchTerms" action="" method="post" class="margin_0">
+            <div class="height_40 background_364150">
+                <div class="height_40 float_left background_293846">
+                    <div class="float_left width_300">
+                        <input type="text" name="projectNo" class="object_search argin_l_15" placeholder="配件名称">
+                        <input type="text" name="projectName" class="object_search" placeholder="配件型号">
+                        <input type="submit" class="input_hide" id="searchButtom">
+                    </div>
+                    <span onclick="$('#searchButtom').click()" class="table_search_submit">&nbsp;<i class="glyphicon glyphicon-search" style="font-size:18px"></i>&nbsp;</span>
+                </div>
+
+                <span data-toggle="modal" data-target="#addParts" class=" float_right object_addobject" title="新增配件"><i class="glyphicon glyphicon-plus-sign"></i>新增配件</span>
+            </div>
+            <table class="table table-bordered table-hover table-striped">
+                <thead>
+                <tr>
+                    <!-- <th class="check_width">
+                        <span class="pointer" onclick="true_cheked(this)"><input type="checkbox" onclick="$(this).parent().click()"></span>
+                    </th> -->
+                    <th> 配件名称</th>
+                    <th>类型</th>
+                    <th>剩余数量</th><!-- 共剩余量-->
+                    <th>位置</th>
+                    <th>详情</th>
+                    <th>描述</th>
+                    <th colspan="2">编辑操作</th>
+                </tr>
+                </thead>
+                <tbody id="projectContent">
+                <tr>
+                    <td class="col-sm-2">配件1</td>
+                    <td class="col-sm-2">机械</td>
+                    <th class="col-sm-1">12件</th>
+                    <td class="col-sm-2">3号货架7列2号</td>
+                    <td class="col-sm-1"><a href="javascript:void(0)" title="增加库存" data-toggle="modal" data-target="#showParts"  onclick="" class="btn-margin_5">详情</a></td>
+                    <td class="col-sm-3">配件1的描述配件1的描述配件1的描述配件1的描述配件1的描述配件1的描述配件1的描述配件1的描述配件1的描述配件1的描述</td>
+                    <td class="clo-sm-1">
+                        <a href="javascript:void(0)" title="增加库存" data-toggle="modal" data-target="#addStore"  onclick="" class="btn-margin_5"><i class="glyphicon glyphicon-plus"></i></a>
+                        <a href="javascript:void(0)" title="修改" data-toggle="modal" data-target="#addStore" onclick="findDetailById()"><i class="glyphicon glyphicon-edit "></i></a>
+                        <a href="javascript:void(0)" title="删除" onclick="deleteProject()" class="btn-margin_5"><i class="glyphicon glyphicon-trash"></i></a>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="8">
+                        <button class="btn btn-primary">上一页</button>
+                        <button class="btn btn-primary">下一页</button>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </form>
+        <div style="clear:both"></div>
+    </div>
