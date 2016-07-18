@@ -8,6 +8,7 @@
 <frameset name="main" cols="150,*">
 	<frame src="page/menu/menu.jsp" name="left" marginwidth="50" scrolling="no"
 		   frameborder="0" noresize>
+<!-- 	<frame src="customerManager/selectCustomer.do" name="right"  frameborder="0" noresize> -->
 	<frame src="page/service/customer.jsp" name="right"  frameborder="0" noresize>
 </frameset>
 </html>

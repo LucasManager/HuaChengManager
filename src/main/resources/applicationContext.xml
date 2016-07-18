@@ -9,7 +9,7 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 	 
-	<context:component-scan base-package="com.up.service" />
+	<context:component-scan base-package="com.huacheng.service" />
 	
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
 		<property name="locations">  
@@ -46,16 +46,23 @@
     </bean>
     <!-- 定义事务切面事务处理 -->
     <!-- 事物处理 -->
-<!-- 	<aop:config>  -->
-<!-- 		<aop:pointcut id="pc" expression="execution(* com.up.service.*.*(..))" /> -->
-<!-- 		<aop:advisor pointcut-ref="pc" advice-ref="txAdvice" /> -->
-<!-- 	</aop:config> -->
-<!--  	 <tx:advice id="txAdvice" transaction-manager="transactionManager"> -->
-<!-- 		<tx:attributes> -->
-<!-- 			<tx:method name="*" propagation="REQUIRED" read-only="false"  -->
-<!-- 			           rollback-for="java.lang.Exception"/> -->
-<!-- 		</tx:attributes> -->
-<!-- 	</tx:advice> -->
+	<aop:config> 
+		<aop:pointcut id="pc" expression="execution(* com.huacheng.service.*.*(..))" />
+		<aop:advisor pointcut-ref="pc" advice-ref="txAdvice" />
+	</aop:config>
+ 	 <tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="save*" propagation="REQUIRED" read-only="false" 
+			           rollback-for="java.lang.Exception"/>
+			<tx:method name="add*" propagation="REQUIRED" read-only="false" 
+			           rollback-for="java.lang.Exception"/>
+			<tx:method name="update*" propagation="REQUIRED" read-only="false" 
+			           rollback-for="java.lang.Exception"/>
+			<tx:method name="delete*" propagation="REQUIRED" read-only="false" 
+			           rollback-for="java.lang.Exception"/>
+          	<tx:method name="*" read-only="true"/><!-- 其他不用事务管理 -->
+		</tx:attributes>
+	</tx:advice>
 	
 <!-- 	<aop:config>  -->
 <!-- 		<aop:aspect id="" ref="myLog" >  -->
@@ -70,11 +77,14 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
     	<property name="dataSource" ref="dataSource" />
         <property name="configLocation" value="classpath:mybatis-config.xml"></property>
-<!--         <property name="mapperLocations" value="classpath:com/up/bean/UserMap.xml"></property> -->
+        <property name="mapperLocations" value="classpath:com/huacheng/bean/*Mapper.xml"></property>
     </bean>
     
     <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactory" />
+	</bean>
+	<bean id="daoSupport" class="com.huacheng.dao.DaoSupport" >
+		<property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
 	</bean>
 	
 </beans>

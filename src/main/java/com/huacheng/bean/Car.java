@@ -1,6 +1,7 @@
 package com.huacheng.bean;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 /**
  * @author Bert
@@ -10,13 +11,15 @@ import java.io.Serializable;
  */
 public class Car implements Serializable {
 
-	private long id;
+	private Long id;
+	private Long customerId;
 	private String carType;
 	private String carNum;
 	private String carColor;
-	private String mileage;
+//	private String mileage;
 	private String VIN;
 	private String description;
+	private Date createDate;
 	
 	/**
 	 * 
@@ -33,27 +36,29 @@ public class Car implements Serializable {
 	 * @param vIN
 	 * @param description
 	 */
-	public Car(long id, String carType, String carNum, String carColor, String mileage, String vIN,
+	public Car(Long id,Long customerId, String carType, String carNum, String carColor, String vIN,Date createDate,
 			String description) {
 		super();
 		this.id = id;
+		this.customerId = customerId;
 		this.carType = carType;
 		this.carNum = carNum;
 		this.carColor = carColor;
-		this.mileage = mileage;
+//		this.mileage = mileage;
 		VIN = vIN;
+		this.createDate = createDate;
 		this.description = description;
 	}
 	/**
 	 * @return the id
 	 */
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	/**
@@ -95,15 +100,15 @@ public class Car implements Serializable {
 	/**
 	 * @return the mileage
 	 */
-	public String getMileage() {
-		return mileage;
-	}
-	/**
-	 * @param mileage the mileage to set
-	 */
-	public void setMileage(String mileage) {
-		this.mileage = mileage;
-	}
+//	public String getMileage() {
+//		return mileage;
+//	}
+//	/**
+//	 * @param mileage the mileage to set
+//	 */
+//	public void setMileage(String mileage) {
+//		this.mileage = mileage;
+//	}
 	/**
 	 * @return the vIN
 	 */
@@ -127,6 +132,30 @@ public class Car implements Serializable {
 	 */
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	/**
+	 * @return the createDate
+	 */
+	public Date getCreateDate() {
+		return createDate;
+	}
+	/**
+	 * @param createDate the createDate to set
+	 */
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+	/**
+	 * @return the customerId
+	 */
+	public Long getCustomerId() {
+		return customerId;
+	}
+	/**
+	 * @param customerId the customerId to set
+	 */
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
 	}
 	
 }

@@ -3,6 +3,7 @@
 	"http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	
+	
 	<settings> 
         <setting name="cacheEnabled" value="false" /> 
         <setting name="useGeneratedKeys" value="true" /> 
@@ -10,7 +11,11 @@
     </settings>
 
 	<typeAliases>
-<!-- 		<typeAlias type="com.up.bean.User" alias="User"/> -->
+		<typeAlias type="com.huacheng.bean.Customer" alias="Customer"/>
+		<typeAlias type="com.huacheng.bean.Car" alias="Car" />
+		<typeAlias type="com.huacheng.bean.Parts" alias="Parts" />
+		<typeAlias type="com.huacheng.bean.PartsStore" alias="PartsStore" />
+		
 	</typeAliases>
 	
 	<!-- 分页功能 -->

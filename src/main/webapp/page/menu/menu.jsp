@@ -27,13 +27,13 @@
     <p></p>
     <ul id="menu_list">
         <li>
-            <a href="../page/customer.html" target="right" style="">
+            <a href="page/service/customer.jsp" target="right" style="">
                 <i class="icon-user"></i>
                 <span>客户管理</span>
             </a>
         </li>
         <li>
-            <a href="../page/parts.html" target="right">
+            <a href="page/service/parts.jsp" target="right">
                 <i class="icon-truck"></i>
                 <span>库存管理</span>
             </a>

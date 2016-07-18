@@ -1,6 +1,7 @@
 package com.huacheng.bean;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -11,11 +12,12 @@ import java.util.List;
  */
 public class Customer implements Serializable {
 
-	private long id;
+	private Long id;
 	private String name;
 	private String phone;
 	private String address;
 	private String description;
+	private Date createDate;
 	private List<Car> cars;
 	
 	/**
@@ -31,7 +33,7 @@ public class Customer implements Serializable {
 	 * @param address
 	 * @param description
 	 */
-	public Customer(long id, String name, String phone, String address, String description,List<Car> cars) {
+	public Customer(Long id, String name, String phone, String address, String description,List<Car> cars) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -43,13 +45,13 @@ public class Customer implements Serializable {
 	/**
 	 * @return the id
 	 */
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	/**
@@ -111,6 +113,18 @@ public class Customer implements Serializable {
 	 */
 	public void setCars(List<Car> cars) {
 		this.cars = cars;
+	}
+	/**
+	 * @return the createDate
+	 */
+	public Date getCreateDate() {
+		return createDate;
+	}
+	/**
+	 * @param createDate the createDate to set
+	 */
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
 	}
 	
 }

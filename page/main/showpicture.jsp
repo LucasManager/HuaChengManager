@@ -1,4 +1,4 @@
-<%@page import="com.cmdb.entity.CIProject"%>
+<%-- <%@page import="com.cmdb.entity.CIProject"%> --%>
 <%@page import="java.util.List"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
