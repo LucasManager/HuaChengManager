@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PartsManagerMapper">
+
+	<insert id="addParts" parameterType="Parts">
+	 	insert into car_parts(name,type,partsNo,positions,description)
+	 	values(#{name},#{type},#{partsNo},#{positions},#{description})
+	</insert>
+	
+	<insert id="addStore" parameterType="PartsStore">
+		insert into parts_store(car_parts_id,increase_Date,num,unit_price,sell_unit_price,description)
+		values(#{partsId},#{increaseDate},#{num},#{unitPrice},#{sellUnitPrice},#{description})
+	</insert>
+	
+	<update id="updatePartsById" parameterType="Parts">
+		update car_parts set name=#{name},type=#{type},partsNo=#{partsNo},positions=#{positions},description=#{description}
+		where id=#{id}
+	</update>
+	
+	<update id="deletePartsById" parameterType="Parts">
+		update car_parts set isDelete='1' where id=#{id}  
+	</update>
+	
+	<update id="deleteStoreById" parameterType="PartsStore">
+		update parts_store set isDelete='1' where id=#{id}
+	</update>
+	
+	<select id="findParts" parameterType="Parts" resultType="Parts">
+		select id,name,type,partsNo,positions,description
+		from car_parts c where (c.isDelete!='1' or c.isDelete is null)
+		<if test="id!=null and id!='' and id!=0">
+			and id = #{id} 
+		</if>
+		<if test="name!=null and name!=''">
+			and name like CONCAT('%',#{name},'%')
+		</if>
+		<if test="type!=null and type!=''">
+			and type like CONCAT('%',#{type},'%')
+		</if>
+		<if test="partsNo!=null and partsNo!=''">
+			and partsNo like CONCAT('%',#{partsNo},'%')
+		</if>
+		<if test="positions!=null and positions!=''">
+			and positions like CONCAT('%',#{positions},'%')
+		</if>
+	</select>
+	
+	<select id="findPartsStore" parameterType="PartsStore" resultType="PartsStore">
+		select car_parts_id partsId,increase_Date increaseDate,num,unit_price unitPrice,sell_unit_price sellUnitPrice,description
+		from parts_store where (isDelete!='1' or isDelete is null)
+		<if test="partsId!=null and partsId!=0">
+			and car_parts_id = #{partsId}
+		</if>
+		<if test="description!=null">
+			and description like CONCAT('%',#{description},'%')
+		</if>
+	</select>
+	
+	
+</mapper>

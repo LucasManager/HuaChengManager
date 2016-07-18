@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CarMapper">
+
+	<select id="selectCar" parameterType="Car" resultType="Car">
+		select id,cust_id customerId,carNum,carType,createDate,car_color carColor,VIN,description
+		from car where (isDelete!='1' or isDelete is null)
+		<if test="customerId!=null and customerId!=''">
+			and cust_id = #{customerId} 
+		</if>
+		<if test="carNum!=null and carNum!=''">
+			and carNum like CONCAT('%',#{carNum},'%')
+		</if>
+		<if test="carType!=null and carType!=''">
+			and carType like CONCAT('%',#{carType},'%')
+		</if>
+		<if test="carColor!=null and carColor!=''">
+			and car_color like CONCAT('%',#{carColor},'%')
+		</if>
+	</select>
+	
+	<insert id="batchInsert" parameterType="list">
+		insert into car(cust_id,carType,carNum,createDate,car_color,VIN,description) values
+		<foreach collection="list" item="car" separator=",">
+			(#{car.customerId},#{car.carType},#{car.carNum},sysdate(),#{car.carColor},#{car.VIN},#{car.description})
+		</foreach>
+	</insert>
+	
+	<update id="deleteCarById" parameterType="int">
+		<foreach collection="list" item="id">
+			update car set isDelete='1' where id=#{id}
+		</foreach>
+	</update>
+	
+</mapper>
