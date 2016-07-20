@@ -3,7 +3,6 @@ package com.huacheng.controller;
 import java.io.PrintWriter;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +15,7 @@ import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import com.huacheng.bean.Parts;
 import com.huacheng.bean.PartsStore;
 import com.huacheng.service.IPartsManagerService;
+import com.huacheng.utils.Common;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -116,6 +116,7 @@ public class PartsManagerController {
 	@RequestMapping("addStore")
 	public void addPartsStore(HttpServletRequest request,HttpServletResponse response){
 		try {
+			long i = Common.SYSTEMTIME;
 			String storeStr = request.getParameter("partsStore");
 			JSONObject jsonStore = JSONObject.fromObject(storeStr);
 			PartsStore store = (PartsStore) JSONObject.toBean(jsonStore, PartsStore.class);
@@ -152,11 +153,13 @@ public class PartsManagerController {
 	
 	
 	public static void main(String[] args) {
-		String json = "{\"partsId\":\"7\",\"increaseDate\":\"2016-01-07 14:14:03\",\"num\":\"1\",\"unitPrice\":\"1\",\"sellUnitPrice\":\"1\",\"description\":\"1\"}";
-		JSONObject fromObject = JSONObject.fromObject(json);
-		Object bean = JSONObject.toBean(fromObject, PartsStore.class);
-		System.out.println(bean);
-		
+//		String json = "{\"partsId\":\"7\",\"increaseDate\":\"2016-01-07 14:14:03\",\"num\":\"1\",\"unitPrice\":\"1\",\"sellUnitPrice\":\"1\",\"description\":\"1\"}";
+//		String[] dateFmts = new String[] { "yyyy/MM/dd", "yyyy-MM-dd HH:mm:ss" };
+//		JSONUtils.getMorpherRegistry().registerMorpher(new DateMorpher(dateFmts));
+//		JSONObject fromObject = JSONObject.fromObject(json);
+//		Object bean = JSONObject.toBean(fromObject, PartsStore.class);
+//		System.out.println(bean);
+//		Calendar calendar = Calendar.getInstance();
 	}
 	
 

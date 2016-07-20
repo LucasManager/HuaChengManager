@@ -17,12 +17,12 @@ import net.sf.json.util.JSONUtils;
 public class Common {
 	
 	static {
-		JSONUtils.getMorpherRegistry().deregisterMorpher(new DateMorpher(new String[]{"yyyy-MM-dd HH:mm:ss"}));
+		JSONUtils.getMorpherRegistry().registerMorpher(new DateMorpher(new String[]{"yyyy-MM-dd HH:mm:ss"}));
 	}
 	
 	public static long SYSTEMTIME=System.currentTimeMillis();
 	
-	public static String dateFormate = "yyyy-MM-dd HH:mm:ss";
+	public static final String dateFormate = "yyyy-MM-dd HH:mm:ss";
 	
 	/**
 	 * 把字符串日期转换为sql日期

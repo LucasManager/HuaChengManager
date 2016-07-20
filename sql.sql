@@ -72,8 +72,8 @@ create table project(
 	projectNo		varchar(100),/*单号： 日期+ 当前的单子序号(第几个单子)：*/
 	projectType 	varchar(100),
 	projectName 	varchar(200),
-	parts_price		float(9,2),/* 配件总价格 */
-	other_price 	float(9,2),/**若换取配件加维修，则此为维修费用**/
+	parts_charge	float(9,2),/* 配件总价格 */
+	labor_charge 	float(9,2),/**若换取配件加维修，则此为维修费用 即：工时费**/
 	startDate 		datetime,/**服务开始时间**/
 	endDate 		datetime,/**服务结束时间**/
 	outServiceDate 	datetime,/**维修保质时间**/
@@ -111,18 +111,19 @@ create table  project_parts(
 /** 缺件记录表 **/
 create table lack_parts(
 	id             int primary key auto_increment ,
-	cust_id        int ,
-	car_partsName  varchar(100),
+	customerName   varchar(100),
+	phone		   varchar(50), 
+	partsName  	   varchar(100),
 	parts_num      varchar(100),/**型号**/
 	carNum	       varchar(100),
 	createDate     datetime,
+	finishDate	   datetime,
 	needNum	       int,            /**所需数量**/
-	status 	       varchar(10),   /*缺件状态：已补充完成   未补充完成 */
+	status 	       varchar(2),   /*缺件状态：已补充完成   未补充完成 */
 	description    varchar(200),
 	isDelete	   varchar(2),
 	UTD1	       varchar(200),
 	UTD2	       varchar(200),
-	FOREIGN key(cust_id) REFERENCES customer(id)
 );
 
 

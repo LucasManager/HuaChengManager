@@ -2,14 +2,17 @@
     <form id="searchTerms" action="" method="post" class="margin_0">
         <div class="height_40 background_364150">
             <div class="height_40 float_left background_293846">
-                <div class="float_left width_300">
+                <div class="float_left width_980">
                     <input type="text" name="projectNo" class="object_search argin_l_15" placeholder="客户名称">
                     <input type="text" name="projectName" class="object_search" placeholder="客户手机号">
-                    <input type="submit" class="input_hide" id="searchButtom">
+                    <select class="object_search" id="sss">
+                        <option >当前缺件状态</option>
+                        <option value="0">缺件</option>
+                        <option value="1">完成</option>
+                    </select>
                 </div>
-                <span onclick="$('#searchButtom').click()" class="table_search_submit">&nbsp;<i class="glyphicon glyphicon-search" style="font-size:18px"></i>&nbsp;</span>
+                <span onclick="ff()" class="table_search_submit">&nbsp;<i class="glyphicon glyphicon-search" style="font-size:18px"></i>&nbsp;</span>
             </div>
-
             <span data-toggle="modal" data-target="#addLockParts" class=" float_right object_addobject" title="缺件记录"><i class="glyphicon glyphicon-plus-sign"></i>缺件记录</span>
         </div>
         <table class="table table-bordered table-hover table-striped">
@@ -37,8 +40,10 @@
                 <td>2016-07-06</td>
                 <td>对当前缺件的描述</td>
                 <td>
+                    <a href="javascript:void(0)" title="缺件补充完成" data-toggle="modal" hidden><i class="glyphicon glyphicon-ok"></i></a>
                     <a href="javascript:void(0)" title="修改" data-toggle="modal" data-target="#addLockParts" onclick="findDetailById()"><i class="glyphicon glyphicon-edit "></i></a>
                     <a href="javascript:void(0)" title="删除" onclick="deleteProject()" class="btn-margin_5"><i class="glyphicon glyphicon-trash"></i></a>
+
                 </td>
             </tr>
             </tbody>

@@ -15,6 +15,7 @@
 		<typeAlias type="com.huacheng.bean.Car" alias="Car" />
 		<typeAlias type="com.huacheng.bean.Parts" alias="Parts" />
 		<typeAlias type="com.huacheng.bean.PartsStore" alias="PartsStore" />
+		<typeAlias type="com.huacheng.bean.LackParts"/>
 		
 	</typeAliases>
 	

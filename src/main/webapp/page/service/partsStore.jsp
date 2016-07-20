@@ -208,7 +208,6 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-				<button type="button" class="btn btn-primary">确认</button>
 			</div>
 		</div>
 	</div>
@@ -217,7 +216,7 @@
 $(document).ready(function() {
 	$('#addPartDate').datetimepicker({
 		language : 'zh-CN',
-		format : 'yyyy-dd-mm hh:ii:ss',
+		format : 'yyyy-mm-dd hh:ii:ss',
 		weekStart : 1,
 		todayBtn : 1,
 		autoclose : 1,
@@ -437,6 +436,7 @@ function confirmStoreClick(){
 		}
 	});
 }
+
 //记录配件进货分页信息
 var storeCurrentPage = 0;
 //查看进货记录：
@@ -456,7 +456,7 @@ function findPartsStore(partsId){
 				for(var i=0;i<data.length;i++){
 					var store = data[i];
 					content = content.concat("<tr><td>"+getDate(store.increaseDate)+"</td><td>"+store.num+"</td><td>"+store.unitPrice+"</td><td>"+store.sellUnitPrice+"</td><td>"+store.description+"</td>"+
-							"<td><a>删除</a></td></tr>");
+							"<td><a onclick='deleteStore("+store.id+",this)'>删除</a></td></tr>");
 				}
 			}
 			$("#partStoreTable").html(content);
@@ -478,7 +478,7 @@ function deleteParts(partsId, obj) {
 			},
 			dataType : "json",
 			success : function(data) {
-				if (data.success == "success") {
+				if (data.result == "success") {
 					alert("删除成功！");
 					obj.parentNode.parentNode.parentNode
 							.removeChild(obj.parentNode.parentNode);
@@ -496,11 +496,11 @@ function deleteStore(storeId, obj) {
 			type : "POST",
 			url : "partsManager/deleteStore.do",
 			data : {
-				partsStore : JSON.stringify(storeId)
+				partsStore : JSON.stringify(store)
 			},
 			dataType : "json",
 			success : function(data) {
-				if (data.success == "success") {
+				if (data.result == "success") {
 					alert("删除成功！");
 					obj.parentNode.parentNode.parentNode
 							.removeChild(obj.parentNode.parentNode);

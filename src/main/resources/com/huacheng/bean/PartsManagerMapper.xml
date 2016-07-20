@@ -47,7 +47,7 @@
 	</select>
 	
 	<select id="findPartsStore" parameterType="PartsStore" resultType="PartsStore">
-		select car_parts_id partsId,increase_Date increaseDate,num,unit_price unitPrice,sell_unit_price sellUnitPrice,description
+		select id,car_parts_id partsId,increase_Date increaseDate,num,unit_price unitPrice,sell_unit_price sellUnitPrice,description
 		from parts_store where (isDelete!='1' or isDelete is null)
 		<if test="partsId!=null and partsId!=0">
 			and car_parts_id = #{partsId}

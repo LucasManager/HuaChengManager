@@ -8,6 +8,9 @@
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
+  <listener>
+  	<listener-class>com.huacheng.listener.ContentListener</listener-class>
+  </listener>
   <!-- 配置请求过滤器，编码格式设为UTF-8，避免中文乱码-->
     <filter>
        <filter-name>springUtf8Encoding</filter-name>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PartsManagerMapper">
+
+	<select id="selectLackParts" parameterType="LackParts" resultType="LackParts">
+		select id,customerName,phone,partsName,parts_num partsNum,carNum,createDate,finishDate,needNum,status,description
+		from lack_parts where (isDelete!='1' || isDelete is null)
+		<if test="id!=null and id!=0">
+			and id=#{id}	
+		</if>
+		<if test="customerName!=null and customerName!=''">
+			and customerName like CONCAT('%',#{customerName},'%')
+		</if>
+		<if test="phone!=null and phone!=''">
+			and phone like CONCAT('%',#{phone},'%')
+		</if>
+		<if test="partsName!=null and partsName!=''">
+			and partsName like CONCAT('%',#{partsName},'%')
+		</if>
+		<if test="status!=null and status!=''">
+			and status = #{status}
+		</if>
+		order by createDate desc
+	</select>
+	
+	<insert id="saveLackParts" parameterType="LackParts">
+		insert into lack_parts(customerName,phone,partsName,parts_num,carNum,createDate,finishDate,needNum,status,description)
+		values(#{customerName},#{phone},#{partsName},#{partsNum},#{carNum},#{createDate},#{finishDate},#{needNum},'0',#{description});
+	</insert>
+	
+	<update id="updateLackById" parameterType="LackParts">
+		update lack_parts set customerName=#{customerName},phone=#{phone},partsName=#{partsName},parts_num=#{partsNum},
+		createDate=#{createDate},needNum=#{needNum},description=#{description}
+		where id=#{id}
+	</update>
+	
+	<update id="deleteById" parameterType="long">
+		update lack_parts set isDelete='1' where id=#{id}
+	</update>
+	
+	<update id="updateStatusById" parameterType="LackParts">
+		update lack_parts set status=#{status},finishDate=now() where id=#{id}
+	</update>
+</mapper>
