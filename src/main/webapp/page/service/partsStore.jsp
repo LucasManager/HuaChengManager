@@ -53,7 +53,7 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<td colspan="8">
+						<td colspan="9">
 							<button class="btn btn-primary">上一页</button>
 							<button class="btn btn-primary">下一页</button>
 						</td>
@@ -252,7 +252,7 @@ function loadPartsGrid(partName,partType,currentPage){
 							"<td><a href='javascript:void(0)' title='查看进货记录' data-toggle='modal' data-target='#showParts' onclick='findPartsStore("+part.id+")' class='btn-margin_5'>详情</a></td><td>"+part.description+"</td>"+
 							"<td><a href='javascript:void(0)' title='增加库存' data-toggle='modal' data-target='#addStore' onclick='addStoreClick("+part.id+")' class='btn-margin_5'><i class='glyphicon glyphicon-plus'></i></a>"+
 							"<a href='javascript:void(0)' title='修改' data-toggle='modal' data-target='#addParts' onclick='updateParts("+part.id+")'  class='btn-margin_5'><i class='glyphicon glyphicon-edit'></i></a>"+
-							"<a href='javascript:void(0)' title='删除'  onclick='deleteParts("+part.id+",this)' class='btn-margin_5'><i class='glyphicon glyphicon-trash'></i></a></td><td></td></tr>");
+							"<a href='javascript:void(0)' title='删除'  onclick='deleteParts("+part.id+",this)' class='btn-margin_5'><i class='glyphicon glyphicon-trash'></i></a></td></tr>");
 				}
 			}
 			$("#partStore").html(content);
@@ -356,11 +356,11 @@ function confirmUpdateParts(){
 			if(data.result=="success"){
 				loadPartsGrid("", "", 0);
 			}else{
-				alert("添加失败！");
+				alert("修改失败！");
 			}
 		},
 		error:function(error){
-			alert("添加出错！");
+			alert("修改出错！");
 		}
 	});
 }
@@ -426,6 +426,7 @@ function confirmStoreClick(){
 			if(data.result=="success")
 			{
 				alert("库存添加成功！");
+				loadPartsGrid("", "", 0);
 			}else
 			{
 				alert("库存添加失败！");

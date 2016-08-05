@@ -10,6 +10,7 @@
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 	 
 	<context:component-scan base-package="com.huacheng.service" />
+	<context:component-scan base-package="com.huacheng.dao" />
 	
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
 		<property name="locations">  
@@ -83,8 +84,8 @@
     <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactory" />
 	</bean>
-	<bean id="daoSupport" class="com.huacheng.dao.DaoSupport" >
-		<property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
-	</bean>
+<!-- 	<bean id="daoSupport" class="com.huacheng.dao.DaoSupport" > -->
+<!-- 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate" /> -->
+<!-- 	</bean> -->
 	
 </beans>

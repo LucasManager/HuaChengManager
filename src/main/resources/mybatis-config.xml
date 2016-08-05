@@ -16,7 +16,8 @@
 		<typeAlias type="com.huacheng.bean.Parts" alias="Parts" />
 		<typeAlias type="com.huacheng.bean.PartsStore" alias="PartsStore" />
 		<typeAlias type="com.huacheng.bean.LackParts"/>
-		
+		<typeAlias type="com.huacheng.bean.Project" alias="Project"/>
+		<typeAlias type="com.huacheng.bean.ProjectParts" alias="ProjectParts"/>
 	</typeAliases>
 	
 	<!-- 分页功能 -->

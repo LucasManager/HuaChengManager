@@ -22,7 +22,7 @@
                     <input type="text" name="projectNo" id="searchCustName" class="object_search argin_l_15" placeholder="客户名称">
                     <input type="text" name="projectName" id="searchPhone" class="object_search" placeholder="客户手机号">
                     <select class="object_search" id="searchStatus">
-                        <option >当前缺件状态</option>
+                        <option  value="">当前缺件状态</option>
                         <option value="0">缺件</option>
                         <option value="1">完成</option>
                     </select>
@@ -292,8 +292,8 @@
 			dataType:"json",
 			success:function(data){
 				if(data.result=="success"){
-					alert("修改成功！")
-					loadLackGrid("", "", "",0);
+					alert("修改成功！");
+					searchLackParts();
 				}else{
 					alert("修改失败！");
 				}				
@@ -316,7 +316,7 @@
 			success:function(data){
 				if(data.result=="success"){
 					alert("缺件补充完成");
-					loadLackGrid("", "", "",0);
+					searchLackParts();
 				}else{
 					alert("缺件补充失败!");
 				}
@@ -330,8 +330,9 @@
 	function searchLackParts(){
 		var customer = $("#searchCustName").val();
 		var phone=$("#searchPhone").val();
-		var status = $("#searchStatus option:selected").val();
-		loadLackGrid(customer, phone, status,0);
+		var st = $("#searchStatus option:selected").val();
+		
+		loadLackGrid(customer, phone, st,0);
 	}
 	
 	function clearLackParts(){
@@ -360,7 +361,7 @@
 				success:function(data){
 					if(data.result=="success"){
 						alert("删除成功！");
-						loadLackGrid("", "", "",0);
+						searchLackParts();
 					}else{
 						alert("缺件补充失败!");
 					}

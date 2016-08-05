@@ -12,7 +12,7 @@ public interface DAO {
 	 * @return
 	 * @throws Exception
 	 */
-	public Object save(String str, Object obj) throws Exception;
+	public int save(String str, Object obj) throws Exception;
 
 	/**
 	 * 修改对象
@@ -22,7 +22,7 @@ public interface DAO {
 	 * @return
 	 * @throws Exception
 	 */
-	public Object update(String str, Object obj) throws Exception;
+	public int update(String str, Object obj) throws Exception;
 
 	/**
 	 * 删除对象

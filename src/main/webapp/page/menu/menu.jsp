@@ -39,7 +39,7 @@
             </a>
         </li>
         <li>
-            <a href="../page/service.html" target="right">
+            <a href="page/service/service.jsp" target="right">
                 <i class="icon-coffee"></i>
                 <span>服务管理</span>
             </a>

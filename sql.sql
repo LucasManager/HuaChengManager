@@ -68,10 +68,10 @@ create table project(
 	id 				int primary key auto_increment ,
 	cust_id 		int,
 	car_id 			int,
-	mileage 		varchar(50),/** 进场里程**/
 	projectNo		varchar(100),/*单号： 日期+ 当前的单子序号(第几个单子)：*/
 	projectType 	varchar(100),
 	projectName 	varchar(200),
+	mileage 		varchar(50),/** 进场里程**/
 	parts_charge	float(9,2),/* 配件总价格 */
 	labor_charge 	float(9,2),/**若换取配件加维修，则此为维修费用 即：工时费**/
 	startDate 		datetime,/**服务开始时间**/
@@ -158,14 +158,14 @@ create table lack_parts(
 进场里程：  应放在 服务管理内部：  里程在变：
 
 	计算剩余量：
-	select s.id,s.name,s.partsNo,s.positions,s.description,sum(p.partsNum)-sum(p.useNum) 
+	select s.id,s.name,s.partsNo,s.positions,s.description,sum(p.partsNum)-sum(p.useNum) 剩余量
 from huachengdb.car_parts s,
-(select s.id,s.car_parts_id,s.num partsNum,sum(p.usedNum) useNum
-from huachengdb.parts_store s,huachengdb.project_parts p
-where s.id = p.car_partStoreId group by s.id
+(
+select s.id,s.car_parts_id,s.num partsNum,case when sum(p.usedNum) is null then 0 else sum(p.usedNum) end as useNum
+from huachengdb.parts_store s left JOIN huachengdb.project_parts p
+on s.id = p.car_partStoreId group by s.id
 ) p
-where s.id = p.car_parts_id group by p.car_parts_id
-
+where s.id = p.car_parts_id group by p.car_parts_id;
 
 		
  */

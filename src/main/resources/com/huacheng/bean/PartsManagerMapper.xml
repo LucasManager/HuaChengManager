@@ -27,23 +27,27 @@
 	</update>
 	
 	<select id="findParts" parameterType="Parts" resultType="Parts">
-		select id,name,type,partsNo,positions,description
-		from car_parts c where (c.isDelete!='1' or c.isDelete is null)
+		select c.id,c.name,c.type,c.partsNo,c.positions,c.description,sum(p.partsNum)-sum(p.useNum) surplusNum
+		from car_parts c left join (select s.id,s.car_parts_id,s.num partsNum,case when sum(p.usedNum) is null then 0 else sum(p.usedNum) end as useNum
+			from huachengdb.parts_store s left JOIN huachengdb.project_parts p
+			on s.id = p.car_partStoreId where (s.isDelete!='1' or s.isDelete is null) and (p.isdelete!='1' or p.isdelete is null) group by s.id) p
+		on c.id = p.car_parts_id where c.isDelete!='1' or c.isDelete is null 
 		<if test="id!=null and id!='' and id!=0">
-			and id = #{id} 
+			and c.id = #{id} 
 		</if>
 		<if test="name!=null and name!=''">
-			and name like CONCAT('%',#{name},'%')
+			and c.name like CONCAT('%',#{name},'%')
 		</if>
 		<if test="type!=null and type!=''">
-			and type like CONCAT('%',#{type},'%')
+			and c.type like CONCAT('%',#{type},'%')
 		</if>
 		<if test="partsNo!=null and partsNo!=''">
-			and partsNo like CONCAT('%',#{partsNo},'%')
+			and c.partsNo like CONCAT('%',#{partsNo},'%')
 		</if>
 		<if test="positions!=null and positions!=''">
-			and positions like CONCAT('%',#{positions},'%')
+			and c.positions like CONCAT('%',#{positions},'%')
 		</if>
+		group by p.car_parts_id	
 	</select>
 	
 	<select id="findPartsStore" parameterType="PartsStore" resultType="PartsStore">
