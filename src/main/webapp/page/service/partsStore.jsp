@@ -189,6 +189,7 @@
 							<th>进货总量</th>
 							<th>进货单价</th>
 							<th>销售单价</th>
+							<th>剩余量</th>
 							<th>备注</th>
 							<th>编辑</th>
 						</thead>
@@ -413,7 +414,7 @@ function confirmStoreClick(){
 		return;
 	}
 	var createDate = $("#addPartDate").val()==""||$("#addPartDate").val()==undefined?null:$("#addPartDate").val();
-	var store={partsId:$("#parHiddenId").val(),increaseDate:createDate,num:$("#partsNum").val(),unitPrice:$("#partsUnit").val(),sellUnitPrice:$("#sellUnit").val(),description:$("#description").val()};
+	var store={part:{id:$("#parHiddenId").val()},increaseDate:createDate,num:$("#partsNum").val(),unitPrice:$("#partsUnit").val(),sellUnitPrice:$("#sellUnit").val(),description:$("#description").val()};
 	$("#confirmStore").attr("data-dismiss","modal");
 	$.ajax({
 		type:"POST",
@@ -442,7 +443,7 @@ function confirmStoreClick(){
 var storeCurrentPage = 0;
 //查看进货记录：
 function findPartsStore(partsId){
-	var store={partsId:partsId};
+	var store={part:{id:partsId}};
 	$.ajax({
 		type:"GET",
 		url:"partsManager/findPartsStore.do",
@@ -456,7 +457,7 @@ function findPartsStore(partsId){
 			if(data!=null && data!=undefined && data.length!=0){
 				for(var i=0;i<data.length;i++){
 					var store = data[i];
-					content = content.concat("<tr><td>"+getDate(store.increaseDate)+"</td><td>"+store.num+"</td><td>"+store.unitPrice+"</td><td>"+store.sellUnitPrice+"</td><td>"+store.description+"</td>"+
+					content = content.concat("<tr><td>"+getDate(store.increaseDate)+"</td><td>"+store.num+"</td><td>"+store.unitPrice+"</td><td>"+store.sellUnitPrice+"</td><td>"+store.surplusNum+"</td><td>"+store.description+"</td>"+
 							"<td><a onclick='deleteStore("+store.id+",this)'>删除</a></td></tr>");
 				}
 			}

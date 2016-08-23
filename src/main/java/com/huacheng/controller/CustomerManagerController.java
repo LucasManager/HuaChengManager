@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import com.huacheng.bean.Car;
@@ -81,8 +82,11 @@ public class CustomerManagerController {
 	{
 		try {
 			String idstr = request.getParameter("id");
+			request.getSession().setAttribute("carId", idstr);
 			Car car = new Car();
-			car.setCustomerId(Long.valueOf(idstr));
+			Customer customer = new Customer();
+			customer.setId(Long.valueOf(idstr));
+			car.setCustomer(customer);
 			List<Car> findCarByCusId = service.findCarByCusId(car);
 			JsonConfig config = new JsonConfig();
 			config.registerJsonValueProcessor(Date.class,new JsDateJsonValueProcessor());
@@ -160,7 +164,7 @@ public class CustomerManagerController {
 			writer = response.getWriter();
 			if (idString!=null && !"".equals(idString)) {
 				Long id = Long.valueOf(idString);
-				List<Long> list = new ArrayList<>();
+				List<Long> list = new ArrayList<Long>();
 				list.add(id);
 				service.deleteCarById(list);
 				writer.println(JSONObject.fromObject("{result:\"success\"}"));
@@ -183,6 +187,25 @@ public class CustomerManagerController {
 		customer.setAddress(request.getParameter("address"));
 		customer.setDescription(request.getParameter("description"));
 		return customer;
+	}
+
+	@RequestMapping("/tt")
+	public String test() {
+		return "page/service/parts";
+	}
+
+	@RequestMapping("/tt1")
+	@ResponseBody
+	public String test1() {
+		return "<a>hello</a>";
+	}
+
+	public ICustomerManagerService getService() {
+		return service;
+	}
+
+	public void setService(ICustomerManagerService service) {
+		this.service = service;
 	}
 
 }

@@ -6,8 +6,8 @@
 	<select id="selectCar" parameterType="Car" resultType="Car">
 		select id,cust_id customerId,carNum,carType,createDate,car_color carColor,VIN,description
 		from car where (isDelete!='1' or isDelete is null)
-		<if test="customerId!=null and customerId!=''">
-			and cust_id = #{customerId} 
+		<if test="customer.id!=null and customer.id!=''">
+			and cust_id = #{customer.id} 
 		</if>
 		<if test="carNum!=null and carNum!=''">
 			and carNum like CONCAT('%',#{carNum},'%')
@@ -23,7 +23,7 @@
 	<insert id="batchInsert" parameterType="list">
 		insert into car(cust_id,carType,carNum,createDate,car_color,VIN,description) values
 		<foreach collection="list" item="car" separator=",">
-			(#{car.customerId},#{car.carType},#{car.carNum},sysdate(),#{car.carColor},#{car.VIN},#{car.description})
+			(#{car.customer.id},#{car.carType},#{car.carNum},sysdate(),#{car.carColor},#{car.VIN},#{car.description})
 		</foreach>
 	</insert>
 	
@@ -32,5 +32,28 @@
 			update car set isDelete='1' where id=#{id}
 		</foreach>
 	</update>
+	<resultMap type="Car" id="carMap">
+		<id property="id" column="id" />
+		<result property="carNum" column="carNum" />
+		<association property="customer" column="cust_id" javaType="Customer">
+			<id property="id" column="m_id" />
+			<result property="name" column="name" />
+			<result property="phone" column="phone"/>
+		</association>
+	</resultMap>
+	<select id="findCarByCus" parameterType="Customer" resultMap="carMap">
+		select c.id,c.carNum,m.id m_id,m.name,m.phone
+		from car c,customer m where c.cust_id=m.id
+		<if test="id!=null and id!=0">
+			and id=#{id}
+		</if>
+		<if test="name!=null and name!=''">
+			and name like concat('%',#{name},'%')
+		</if>
+		<if test="phone!=null and phone!=''">
+			and phone like concat('%',#{phone},'%')
+		</if>
+		
+	</select>
 	
 </mapper>

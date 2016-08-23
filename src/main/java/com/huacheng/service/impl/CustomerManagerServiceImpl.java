@@ -25,7 +25,6 @@ public class CustomerManagerServiceImpl implements ICustomerManagerService {
 	@Resource(name="daoSupport")
 	private DAO dao;
 	
-	@Override
 	public List<Customer> selectCustomer(Customer customer,PageBounds page) {
 		List<Customer> results = null;
 		try {
@@ -42,44 +41,41 @@ public class CustomerManagerServiceImpl implements ICustomerManagerService {
 		if(cars!=null && cars.size()!=0)
 		{
 			for (Car car : cars) {
-				car.setCustomerId(customer.getId());
+				car.setCustomer(customer);
 			}
 			dao.save("CarMapper.batchInsert", cars);
 		}
 	}
 	
 
-	@Override
 	public void deleteCustomerById(Long id) throws Exception {
 		dao.delete("CustomerMapper.deleteById", id);
 	}
 
-	@Override
 	public Customer selectById(Long id) throws Exception {
 		Customer customer = (Customer) dao.findForObject("CustomerMapper.selectById", id);
 		return customer;
 	}
 
-	@Override
+	
 	public void deleteCarById(List<Long> list) throws Exception {
 		Object update = dao.update("CarMapper.deleteCarById", list);
 		System.out.println(update);
 	}
 
-	@Override
+	
 	public void updateCustomer(Customer customer, List<Car> cars) throws Exception {
 		Integer save = (Integer) dao.update("CustomerMapper.updateCustomer", customer);
 		System.out.println(save);
 		if(cars!=null && cars.size()!=0 && save!=null && save!=0)
 		{
 			for (Car car : cars) {
-				car.setCustomerId(customer.getId());
+				car.setCustomer(customer);
 			}
 			dao.save("CarMapper.batchInsert", cars);
 		}
 	}
 
-	@Override
 	public List<Car> findCarByCusId(Car car) throws Exception {
 		List<Car> cars = (List<Car>) dao.findForList("CarMapper.selectCar", car);
 		return cars;

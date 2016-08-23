@@ -3,20 +3,22 @@ package com.huacheng.bean;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.apache.ibatis.type.Alias;
+
 /**
  * @author Bert
  *
  * @date 2016年7月7日
  *
  */
+@Alias("Car")
 public class Car implements Serializable {
 
 	private Long id;
-	private Long customerId;
+	private Customer customer;
 	private String carType;
 	private String carNum;
 	private String carColor;
-//	private String mileage;
 	private String VIN;
 	private String description;
 	private Date createDate;
@@ -36,11 +38,11 @@ public class Car implements Serializable {
 	 * @param vIN
 	 * @param description
 	 */
-	public Car(Long id,Long customerId, String carType, String carNum, String carColor, String vIN,Date createDate,
+	public Car(Long id,Customer customer, String carType, String carNum, String carColor, String vIN,Date createDate,
 			String description) {
 		super();
 		this.id = id;
-		this.customerId = customerId;
+		this.customer = customer;
 		this.carType = carType;
 		this.carNum = carNum;
 		this.carColor = carColor;
@@ -145,17 +147,10 @@ public class Car implements Serializable {
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
-	/**
-	 * @return the customerId
-	 */
-	public Long getCustomerId() {
-		return customerId;
+	public Customer getCustomer() {
+		return customer;
 	}
-	/**
-	 * @param customerId the customerId to set
-	 */
-	public void setCustomerId(Long customerId) {
-		this.customerId = customerId;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
-	
 }

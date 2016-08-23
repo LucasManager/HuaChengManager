@@ -20,13 +20,13 @@ public class LackPartsManagerService implements ILackPartsManagerService {
 	@Resource(name="daoSupport")
 	private DAO dao;
 	
-	@Override
+	
 	public List<LackParts> findLackParts(LackParts parts, PageBounds pb) throws Exception {
 		List<LackParts> results = (List<LackParts>) dao.findForListlimit("PartsManagerMapper.selectLackParts", parts, pb);
 		return results;
 	}
 
-	@Override
+	
 	public void addLackParts(LackParts parts) throws Exception {
 		Integer save = (Integer)dao.save("PartsManagerMapper.saveLackParts", parts);
 		if (save==null || save==0) {
@@ -34,7 +34,7 @@ public class LackPartsManagerService implements ILackPartsManagerService {
 		}
 	}
 
-	@Override
+	
 	public void updateLackParts(LackParts parts) throws Exception {
 		Integer update = (Integer) dao.update("PartsManagerMapper.updateLackById", parts);
 		if (update==null || update==0) {
@@ -42,12 +42,12 @@ public class LackPartsManagerService implements ILackPartsManagerService {
 		}
 	}
 
-	@Override
+	
 	public void deleteLackPartsById(Long id) throws Exception {
 		dao.delete("PartsManagerMapper.deleteById", id);
 	}
 
-	@Override
+	
 	public void updateLackPartsStatus(LackParts parts) throws Exception {
 		dao.update("PartsManagerMapper.updateStatusById", parts);
 	}

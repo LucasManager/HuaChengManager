@@ -13,8 +13,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
-
-@Component
+@Component("daoSupport")
 public class DaoSupport implements DAO {
 
 	@Resource(name="sqlSessionTemplate")

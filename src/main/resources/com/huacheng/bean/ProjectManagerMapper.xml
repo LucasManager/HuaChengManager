@@ -3,10 +3,73 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ProjectManagerMapper">
 
-	<insert id="addProject" parameterType="Project">
-		insert into project values(cust_id,car_id,projectNo,projectType,projectName,mileage,parts_charge,
-		labor_charge,startDate,endDate,outServiceDate,chargePerson,status,description)
-		values(#{customer.id},#{car.id},#{projectNo},#{projectType},#{projectName},#{mileage},#{partsCharge},
-		#{laborCharge},#{startDate},#{endDate},#{outServiceDate},#{chargePerson},#{status},#{description})
+	<insert id="addProject" parameterType="Project" keyProperty="id">
+		insert into project (cust_id,car_id,projectNo,projectType,projectName,mileage,parts_charge,labor_charge,startDate,endDate,outServiceDate,chargePerson,status,description)
+		 values (#{customer.id},#{car.id},#{projectNo},#{projectType},#{projectName},#{mileage},#{partsCharge},#{laborCharge},#{startDate},#{endDate},#{outServiceDate},#{chargePerson},#{status},#{description})
 	</insert>
+
+	<resultMap type="Project" id="projectMap">
+		<id property="id" column="pid" />
+		<result property="projectNo" column="projectNo" />
+		<result property="projectType" column="projectType" />
+		<result property="projectName" column="projectName" />
+		<result property="mileage" column="mileage" />
+		<result property="partsCharge" column="parts_charge" />
+		<result property="laborCharge" column="labor_charge" />
+		<result property="startDate" column="startDate" />
+		<result property="endDate" column="endDate" />
+		<result property="outServiceDate" column="outServiceDate" />
+		<result property="chargePerson" column="chargePerson" />
+		<result property="status" column="status" />
+		<result property="description" column="description" />
+		<association property="customer" javaType="Customer"
+			column="cust_id" resultMap="cusMessage"></association>
+		<association property="car" javaType="Car" column="car_id"
+			resultMap="carMap"></association>
+		<collection property="useParts" ofType="ProjectParts"
+			resultMap="pparts"></collection>
+	</resultMap>
+	<resultMap type="Customer" id="cusMessage">
+		<id property="id" column="cuid" />
+		<result property="name" column="cuname" />
+		<result property="phone" column="phone" />
+	</resultMap>
+	<resultMap type="Car" id="carMap">
+		<id property="id" column="caid" />
+		<result property="carNum" column="carNum" />
+	</resultMap>
+	<resultMap type="ProjectParts" id="pparts">
+		<id property="id" column="ppid" />
+		<result property="useNum" column="usedNum" />
+		<result property="partsName" column="partsName" />
+		<result property="partsType" column="partsType" />
+		<result property="partsNo" column="partsNo" />
+	</resultMap>
+
+	<select id="findProject" resultMap="projectMap" parameterType="Project">
+<!-- 		select p.id pid,p.projectName,p.projectNo,p.projectType,p.mileage,p.parts_charge, -->
+<!-- 		p.labor_charge,p.startDate,p.endDate,p.chargePerson,p.description, -->
+<!-- 		cu.id cuid,cu.name cuname,cu.phone,ca.id caid,ca.carNum, -->
+<!-- 		pp.id ppid,pp.usedNum -->
+<!-- 		from huachengdb.project p,huachengdb.car ca,huachengdb.customer cu,huachengdb.project_parts pp -->
+<!-- 		where p.cust_id= cu.id and p.car_id = ca.id and p.id = pp.projectId -->
+select p.id pid,p.projectName,p.projectNo,p.projectType,p.mileage,p.parts_charge,
+		p.labor_charge,p.startDate,p.endDate,p.chargePerson,p.description,
+		cu.id cuid,cu.name cuname,cu.phone,ca.id caid,ca.carNum,
+		pp.id ppid,pp.usedNum
+		from huachengdb.project p left join huachengdb.customer cu on p.cust_id = cu.id 
+		left join huachengdb.car ca on p.car_id = ca.id left join huachengdb.project_parts pp on p.id=pp.projectId
+		where 1=1
+		<if test="projectName!=null and projectName!=''">
+			and p.projectName like concat('%',#{projectName},'%')
+		</if>
+		<if test="projectType!=null and projectType!=''">
+			and p.projectType like concat('%',#{projectType},'%')
+		</if>
+		<if test="customer!=null and customer.name!=null and customer.name!=''">
+			and cu.name like concat('%',#{customer.name},'%')
+		</if>
+		order by p.startDate desc
+	</select>
+
 </mapper>

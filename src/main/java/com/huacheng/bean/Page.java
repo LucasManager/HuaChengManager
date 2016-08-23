@@ -1,11 +1,14 @@
 package com.huacheng.bean;
 
+import org.apache.ibatis.type.Alias;
+
 /**
  * @author Bert
  *
  * @date 2016年7月8日
  *
  */
+@Alias("Page")
 public class Page {
 
 	private int currentPage;

@@ -2,12 +2,15 @@ package com.huacheng.bean;
 
 import java.io.Serializable;
 
+import org.apache.ibatis.type.Alias;
+
 /**
  * @author Bert
  *
  * @date 2016年7月13日
  *
  */
+@Alias("Parts")
 public class Parts implements Serializable {
 	
 	private Long id;

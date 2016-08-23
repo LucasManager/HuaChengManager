@@ -3,6 +3,10 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ProjectParts">
 
-	<insert id="addProjectParts" parameterType=""></insert>
-	
+	<insert id="addpParts" parameterType="java.util.List">
+		insert into project_parts(projectId,car_partStoreId,partsName,partsType,partsNo,usedNum) values
+		<foreach collection="list" item="pp" separator=",">
+			(#{pp.projectId},#{pp.partsStore.id},#{pp.partsName},#{pp.partsType},#{pp.partsNo},#{pp.useNum})
+		</foreach>
+	</insert>
 </mapper>

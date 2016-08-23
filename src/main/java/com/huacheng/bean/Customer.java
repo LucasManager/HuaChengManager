@@ -4,12 +4,15 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.ibatis.type.Alias;
+
 /**
  * @author Bert
  *
  * @date 2016年7月7日
  *
  */
+@Alias("Customer")
 public class Customer implements Serializable {
 
 	private Long id;

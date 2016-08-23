@@ -150,20 +150,6 @@ public class PartsManagerController {
 			System.out.println("find partsStore fail："+e.getMessage());
 		}
 	}
-	
-	
-	public static void main(String[] args) {
-//		String json = "{\"partsId\":\"7\",\"increaseDate\":\"2016-01-07 14:14:03\",\"num\":\"1\",\"unitPrice\":\"1\",\"sellUnitPrice\":\"1\",\"description\":\"1\"}";
-//		String[] dateFmts = new String[] { "yyyy/MM/dd", "yyyy-MM-dd HH:mm:ss" };
-//		JSONUtils.getMorpherRegistry().registerMorpher(new DateMorpher(dateFmts));
-//		JSONObject fromObject = JSONObject.fromObject(json);
-//		Object bean = JSONObject.toBean(fromObject, PartsStore.class);
-//		System.out.println(bean);
-//		Calendar calendar = Calendar.getInstance();
-	}
-	
-
-	
 	private Parts getParts(HttpServletRequest request)
 	{
 		Parts parts = new Parts();

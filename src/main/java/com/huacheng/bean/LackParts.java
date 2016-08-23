@@ -2,12 +2,15 @@ package com.huacheng.bean;
 
 import java.util.Date;
 
+import org.apache.ibatis.type.Alias;
+
 /**
  * @author Bert
  *
  * @date 2016年7月19日
  *
  */
+@Alias("LackParts")
 public class LackParts {
 	
 	private Long id;
