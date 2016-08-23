@@ -72,7 +72,7 @@ create table project(
 	projectType 	varchar(100),
 	projectName 	varchar(200),
 	mileage 		varchar(50),/** 进场里程**/
-	parts_charge	float(9,2),/* 配件总价格 */
+	parts_charge	float(9,2),/** 配件总价格 **/
 	labor_charge 	float(9,2),/**若换取配件加维修，则此为维修费用 即：工时费**/
 	startDate 		datetime,/**服务开始时间**/
 	endDate 		datetime,/**服务结束时间**/
@@ -94,10 +94,12 @@ create table project(
 create table  project_parts(
 	id 				int primary key auto_increment ,
 	projectId		int,                 /**对应的服务编号**/
-/**	car_partsId		int,                 对应的配件编号**/
-	car_partStoreId	int,				 /**对应的配件编号**/
-	usedNum			int,                 /**当前服务使用的当前配件的个数**/
-	isdelete		varchar(2),                 /**逻辑删除标志  **/
+	car_partStoreId	int,				/**对应的配件编号**/
+	partsName		varchar(100),		/**冗余字段**/
+	partsType 		varchar(20),		/**冗余字段**/
+	partsNo 		varchar(100),		/**冗余字段**/
+	usedNum			int,                /**当前服务使用的当前配件的个数**/
+	isdelete		varchar(2),          /**逻辑删除标志  **/
 	UTD1			varchar(200),
 	UTD2			varchar(200),
 	FOREIGN key (projectId) REFERENCES project(id),
