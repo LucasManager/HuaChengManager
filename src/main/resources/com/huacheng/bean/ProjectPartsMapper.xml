@@ -9,4 +9,13 @@
 			(#{pp.projectId},#{pp.partsStore.id},#{pp.partsName},#{pp.partsType},#{pp.partsNo},#{pp.useNum})
 		</foreach>
 	</insert>
+	
+	<update id="deletepParts" parameterType="ProjectParts">
+		update project_parts set isdelete='1' where id=#{id}
+	</update>
+	
+	<update id="deleteByProject">
+		update project_parts set isdelete='1' where projectId=#{id}
+	</update>
+	
 </mapper>

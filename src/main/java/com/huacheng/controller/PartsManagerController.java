@@ -116,7 +116,6 @@ public class PartsManagerController {
 	@RequestMapping("addStore")
 	public void addPartsStore(HttpServletRequest request,HttpServletResponse response){
 		try {
-			long i = Common.SYSTEMTIME;
 			String storeStr = request.getParameter("partsStore");
 			JSONObject jsonStore = JSONObject.fromObject(storeStr);
 			PartsStore store = (PartsStore) JSONObject.toBean(jsonStore, PartsStore.class);

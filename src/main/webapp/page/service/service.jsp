@@ -55,32 +55,14 @@
 								<th class="">车牌号</th>
 								<th class="">开始时间</th>
 								<th class="">结束时间</th>
-<!-- 								<th class="">是否完成</th> -->
+								<!-- 								<th class="">是否完成</th> -->
 								<th class="">详情</th>
 								<th class="">描述</th>
 								<th colspan="2" class="clo-sm-1">编辑操作</th>
 							</tr>
 						</thead>
 						<tbody id="serviceGrid">
-							<tr>
-								<td>配件换取</td>
-								<td>换件</td>
-								<th>张三</th>
-								<td>2016-06-12</td>
-								<td>2016-06-12</td>
-								<td>已完成</td>
-								<td>ffff</td>
-								<td><a href="javascript:void(0)" data-toggle="modal"
-									data-target="#showServiceDetial" onclick=""
-									class="btn-margin_5">详情</a></td>
-								<td>fdasfsad</td>
-								<td><a href="javascript:void(0)" title="修改"
-									data-toggle="modal" data-target="#addStore"><i
-										class="glyphicon glyphicon-edit "></i></a> <a
-									href="javascript:void(0)" title="删除" onclick="deleteProject()"
-									class="btn-margin_5"><i class="glyphicon glyphicon-trash"></i></a>
-								</td>
-							</tr>
+							
 						</tbody>
 						<tfoot>
 							<tr>
@@ -106,6 +88,32 @@
 				</div>
 				<div class="modal-body">
 					<div class="form-horizontal">
+						<div class="form-group">
+							<label for="startDate" class="col-sm-3 control-label">服务开始日期：</label>
+							<div class="col-sm-9">
+								<div class="controls">
+									<div class="input-prepend input-group">
+										<span class="add-on input-group-addon"> <i
+											class="glyphicon glyphicon-calendar fa fa-calendar"> </i>
+										</span> <input type="text" style="width: 200px" name="startDate"
+											id="startDate" readonly class="form-control myDate" value="" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="endDate" class="col-sm-3 control-label">服务结束时间：</label>
+							<div class="col-sm-9">
+								<div class="controls">
+									<div class="input-prepend input-group">
+										<span class="add-on input-group-addon"> <i
+											class="glyphicon glyphicon-calendar fa fa-calendar"> </i>
+										</span> <input type="text" style="width: 200px" name="endDate"
+											id="endDate" readonly class="form-control myDate" value="" />
+									</div>
+								</div>
+							</div>
+						</div>
 						<div class="form-group">
 							<label class="col-sm-3 control-label">客户名：</label>
 							<div class="col-sm-7">
@@ -190,190 +198,6 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 					<button type="button" class="btn btn-primary" id="conformProject">确认</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-
-	<div class="modal fade" id="addStore" tabindex="-1" role="dialog">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h3>修改服务信息</h3>
-				</div>
-				<div class="modal-body">
-					<div class="form-horizontal">
-						<div class="form-group">
-							<label for="addPartDate" class="col-sm-3 control-label">服务开始日期：</label>
-							<div class="col-sm-9">
-								<div class="controls">
-									<div class="input-prepend input-group">
-										<span class="add-on input-group-addon"> <i
-											class="glyphicon glyphicon-calendar fa fa-calendar"> </i>
-										</span> <input type="text" style="width: 200px" name="addPartDate"
-											id="addPartDate" readonly class="form-control" value="" />
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="addPartDate" class="col-sm-3 control-label">服务结束时间：</label>
-							<div class="col-sm-9">
-								<div class="controls">
-									<div class="input-prepend input-group">
-										<span class="add-on input-group-addon"> <i
-											class="glyphicon glyphicon-calendar fa fa-calendar"> </i>
-										</span> <input type="text" style="width: 200px" name="addPartDate"
-											id="addPartDate" readonly class="form-control" value="" />
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="partsType" class="col-sm-3 control-label">服务名称：</label>
-							<div class="col-sm-9">
-								<input type="email" class="form-control" id=""
-									placeholder="服务名称">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="partsType" class="col-sm-3 control-label">服务类型：</label>
-							<div class="col-sm-9">
-								<input type="email" class="form-control" id=""
-									placeholder="服务类型">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="customerName" class="col-sm-3 control-label">所需配件：</label>
-							<div class="col-sm-9">
-								<button class="btn btn-info text-left" data-toggle="modal"
-									data-target="#SearchPartsModal" id="searchParts">新增配件</button>
-								<table class="table table-hover table-bordered col-lg-3">
-									<thead>
-										<th class="display-none">配件Id</th>
-										<th>配件名称</th>
-										<th>配件个数</th>
-									</thead>
-									<tbody>
-										<tr>
-											<td class="display-none">1</td>
-											<td>配件1</td>
-											<td>3</td>
-										</tr>
-										<tr>
-											<td class="display-none">1</td>
-											<td>配件1</td>
-											<td>3</td>
-										</tr>
-
-									</tbody>
-								</table>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="inputEmail3" class="col-sm-3 control-label">配件总价：</label>
-							<div class="col-sm-9">
-								<input type="email" class="form-control" id="inputEmail3"
-									placeholder="配件总价">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="inputEmail3" class="col-sm-3 control-label">其他费用：</label>
-							<div class="col-sm-9">
-								<input type="email" class="form-control" id="inputEmail3"
-									placeholder="其他费用">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="inputEmail3" class="col-sm-3 control-label">负责人：</label>
-							<div class="col-sm-9">
-								<input type="email" class="form-control" id="inputEmail3"
-									placeholder="负责人">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="inputEmail3" class="col-sm-3 control-label">描述：</label>
-							<div class="col-sm-9">
-								<textarea class="form-control width_400 height-auto font-lg"
-									id="inputEmail3" placeholder="对当前进货的备注信息"></textarea>
-							</div>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-						<button type="button" class="btn btn-primary">确认</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal fade" id="showParts" tabindex="-1" role="dialog">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h3>配件信息</h3>
-				</div>
-				<div class="modal-body">
-					<div class="panel panel-default">
-						<div class="panel-heading font-16">配件进货信息</div>
-						<!-- Table -->
-						<table class="table table-striped table-hover table-responsive">
-							<thead>
-								<th>进货日期</th>
-								<th>型号</th>
-								<th>进货单价</th>
-								<th>进货总价</th>
-								<th>总量</th>
-								<th>剩余量</th>
-								<th>备注</th>
-							</thead>
-							<tbody>
-								<tr>
-									<td class="col-sm-2">2016-06-11</td>
-									<td class="col-sm-2">XNP0001</td>
-									<td class="col-sm-1">23.1</td>
-									<td class="col-sm-1">10000</td>
-									<td class="col-sm-1">200</td>
-									<td class="col-sm-1">50</td>
-									<td class="col-sm-4">备注信息备注信息备注信息备注信息备注信息</td>
-								</tr>
-								<tr>
-									<td class="col-sm-2">2016-06-11</td>
-									<td class="col-sm-2">XNP0001</td>
-									<td class="col-sm-1">23.1</td>
-									<td class="col-sm-1">10000</td>
-									<td class="col-sm-1">200</td>
-									<td class="col-sm-1">50</td>
-									<td class="col-sm-4">备注信息</td>
-								</tr>
-								<tr>
-									<td class="col-sm-2">2016-06-11</td>
-									<td class="col-sm-2">XNP0001</td>
-									<td class="col-sm-1">23.1</td>
-									<td class="col-sm-1">10000</td>
-									<td class="col-sm-1">200</td>
-									<td class="col-sm-1">50</td>
-									<td class="col-sm-4">备注信息</td>
-								</tr>
-								<tr>
-									<td class="col-sm-2">2016-06-11</td>
-									<td class="col-sm-2">XNP0001</td>
-									<td class="col-sm-1">23.1</td>
-									<td class="col-sm-1">10000</td>
-									<td class="col-sm-1">200</td>
-									<td class="col-sm-1">50</td>
-									<td class="col-sm-4">备注信息</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-					<button type="button" class="btn btn-primary">确认</button>
 				</div>
 			</div>
 		</div>
@@ -554,7 +378,7 @@
 						<div class="form-group">
 							<label for="partsType" class="col-sm-3 control-label">备注：</label>
 							<div class="col-sm-9">
-								<label class="form-control" id="" placeholder=""></label>
+								<label class="form-control" id="" placeholder="备注说明"></label>
 							</div>
 						</div>
 					</div>
@@ -581,7 +405,7 @@
 	}
 	function clearInput(){
 		initData();
-		$("#cusName").val("");
+		$("#cusName").text("");
 		$("#projectType").val("");
 		$("#mileage").val("");
 		$("#addPartTable").html("");
@@ -589,14 +413,15 @@
 		$("#laborCharge").val("");
 		$("#chargePerson").val("");
 		$("#description").val("");
-		$("#projectName").val("")
+		$("#projectName").val("");
+		$(".myDate").val("");
 	}
 	
 	
 $(document).ready(function(){
-	$('#addPartDate').datetimepicker({
+	$('.myDate').datetimepicker({
 		language:  'zh-CN',
-		format:'yyyy-dd-mm hh:ii:ss',
+		format:'yyyy-mm-dd hh:ii:ss',
 		weekStart: 1,
 		todayBtn:  1,
 		autoclose: 1,
@@ -606,7 +431,7 @@ $(document).ready(function(){
 		showMeridian: 1,
 		minView:2
 	});
-	loadDataGrid({});
+	loadDataGrid({},0);
 	$("#searchUserBtn").click(function(e){
 		findCustCar({id:null});
 	});
@@ -653,6 +478,8 @@ $(document).ready(function(){
 	$("#addProjectBtn").click(function(e){
 		clearInput();
 		$("#conformProject").attr("onclick","saveProject()");
+		$("#searchUserBtn").removeAttr("disabled");
+		$("#conformProject").removeAttr("data-dismiss");
 	});
 	
 })
@@ -666,6 +493,7 @@ function deletecache(id,obj){
 		console.info("删除失败："+e);
 	}
 }
+
 
 function findCustCar(customer){
 	$("#userCarTable").html("");
@@ -702,13 +530,13 @@ function findCustCar(customer){
 	});
 }
 
-function loadDataGrid(project){
+function loadDataGrid(project,currentPage){
 	$.ajax({
 		method:"GET",
 		url:"project/findProject.do",
 		data:{
 			project:JSON.stringify(project),
-			currentPage:0
+			currentPage:currentPage
 		},
 		dataType:"json",
 		success:function(data){
@@ -717,9 +545,9 @@ function loadDataGrid(project){
 				for(var i=0;i<data.length;i++){
 					var p = data[i];
 					content = content.concat("<tr><td>"+p.projectName+"</td><td>"+p.projectType+"</td><td>"+p.customer.name+"</td><td>"+p.car.carNum+"</td>"+
-							"<td>"+getDate(p.startDate)+"</td><td>"+getDate(p.endDate)+"</td><td><a data-toggle='modal' data-target=''>详情</a></td><td>"+p.description+"</td>"+
-							"<td><a href='javacript:void(0)' title='修改' data-toggle='modal' data-target=''> <i class='glyphicon glyphicon-edit'></i></a>"+
-							"<a href='javacript:void(0)' title='删除' class='btn-margin_5'><i class='glyphicon glyphicon-trash'></i></td></tr>");
+							"<td>"+getDate(p.startDate)+"</td><td>"+getDate(p.endDate)+"</td><td><a data-toggle='modal' data-target='#'>详情</a></td><td>"+p.description+"</td>"+
+							"<td><a href='javacript:void(0)' title='修改' onclick='updateProject("+p.id+")' data-toggle='modal' data-target='#addService'> <i class='glyphicon glyphicon-edit'></i></a>"+
+							"<a href='javacript:void(0)' title='删除' onclick='deleteProject("+p.id+",this)' class='btn-margin_5'><i class='glyphicon glyphicon-trash'></i></td></tr>");
 				}
 			}
 			$("#serviceGrid").html(content);
@@ -730,6 +558,77 @@ function loadDataGrid(project){
 	});
 }
 
+function updateProject(pid){
+	clearInput();
+	$("#searchUserBtn").attr("disabled","disabled");
+	$("#conformProject").attr("onclick","ConfirmUpdateProject("+pid+")");
+	$("#conformProject").removeAttr("dismiss");
+	var p = {id:pid};
+	$.ajax({
+		url:"project/findProject.do",
+		method:"GET",
+		data:{
+			project:JSON.stringify(p)
+		},
+		dataType:"json",
+		success:function(data){
+			if(isEmpty(data) && data.length==1){
+				var pp=data[0];
+				$("#startDate").val(getDate(pp.startDate));
+				$("#endDate").val(getDate(pp.endDate));
+				$("#cusName").text(pp.customer.name);
+				$("#projectName").val(pp.projectName);
+				$("#projectType").val(pp.projectType);
+				$("#mileage").val(pp.mileage);
+				$("#partsCharge").val(pp.partsCharge);
+				$("#laborCharge").val(pp.laborCharge);
+				$("#chargePerson").val(pp.chargePerson);
+				$("#description").val(pp.description);
+				var content = "";
+				if(isEmpty(pp.useParts) && pp.useParts.length!=0){
+					for(var i=0;i<pp.useParts.length;i++){
+						var p = pp.useParts[i];
+						content =content.concat("<tr><td>"+p.partsName+"</td><td>"+p.partsNo+"</td><td>"+p.useNum+"</td><td><a onclick='deleteRemote("+p.id+",this)'>删除</a></td></tr>");
+					}
+				}
+				$("#addPartTable").html(content);
+			}		
+		}
+	});
+	
+}
+
+function ConfirmUpdateProject(pid){
+	if(!isEmpty($("#projectName").val())){
+		alert("项目名称不能为空！");
+		return;
+	}
+	var startDate=$("#startDate").val()==""||$("#startDate").val()==undefined?null:$("#startDate").val();
+	var endDate=$("#endDate").val()==""||$("#endDate").val()==undefined?null:$("#endDate").val();
+	var p={id:pid,useParts:getParts(ppartsStore),
+			startDate:startDate,endDate:endDate,
+			projectName:$("#projectName").val(),projectType:$("#projectType").val(),mileage:$("#mileage").val(),
+			partsCharge:$("#partsCharge").val(),laborCharge:$("#laborCharge").val(),chargePerson:$("#chargePerson").val(),
+			description:$("#description").val()};
+	$("#conformProject").attr("data-dismiss","modal");
+	$.ajax({
+		url:"project/updateProject.do",
+		method:"POST",
+		dataType:"json",
+		data:{
+			project:JSON.stringify(p)
+		},
+		success:function(data){
+			if(data.result=="success"){
+				alert("修改成功！");
+				loadDataGrid({},0);
+			}
+		}
+	});
+	
+	
+	
+}
 
 function saveProject(){
 	if(!isEmpty(pCustomer.id) || !isEmpty(pCar.id)){
@@ -740,8 +639,14 @@ function saveProject(){
 		alert("项目名称不能为空！");
 		return;
 	}
-	var p={customer:pCustomer,car:pCar,useParts:getParts(ppartsStore),projectName:$("#projectName").val(),projectType:$("#projectType").val(),mileage:$("#mileage").val(),
-			partsCharge:$("#partsCharge").val(),laborCharge:$("#laborCharge").val(),chargePerson:$("#chargePerson").val(),description:$("#description").val()};
+	var startDate=$("#startDate").val()==""||$("#startDate").val()==undefined?null:$("#startDate").val();
+	var endDate=$("#endDate").val()==""||$("#endDate").val()==undefined?null:$("#endDate").val();
+	var p={customer:pCustomer,car:pCar,useParts:getParts(ppartsStore),
+			startDate:startDate,endDate:endDate,
+			projectName:$("#projectName").val(),projectType:$("#projectType").val(),mileage:$("#mileage").val(),
+			partsCharge:$("#partsCharge").val(),laborCharge:$("#laborCharge").val(),chargePerson:$("#chargePerson").val(),
+			description:$("#description").val()};
+	$("#conformProject").attr("data-dismiss","modal");
 	$.ajax({
 		method:"POST",
 		url:"project/saveProject.do",
@@ -750,7 +655,11 @@ function saveProject(){
 		},
 		dataType:"json",
 		success:function(data){
-			console.info(data);			
+			if(data.result=="success"){
+				alert("服务添加成功！");
+				loadDataGrid({},0);
+			}
+			
 		}
 	})
 }
@@ -794,11 +703,51 @@ function findPartsStore(partsStore){
 		}
 	});
 }
-
+function deleteRemote(id,obj){
+	var pp={id:id};
+	$.ajax({
+		url: "project/deleteProParts.do",
+		type:"POST",
+		data: {
+			projectParts:JSON.stringify(pp)
+        },
+        dataType: "json",
+        success: function(data) {
+            if (data.result == "success") {
+                alert("删除成功！");
+                obj.parentNode.parentNode.parentNode.removeChild(obj.parentNode.parentNode);
+            } else {
+                alert(data.result);
+            }
+        },
+        error:function(data){
+        	alert(data.result);
+        }
+	});
+}
 
 function deleteProject(projectId, obj) {
 	if (confirm("是否确认删除？")) {
-		
+		var pp = {id:projectId}
+		$.ajax({
+			url: "project/deleteProject.do",
+			type:"POST",
+			data: {
+				project:JSON.stringify(pp)
+	        },
+	        dataType: "json",
+	        success: function(data) {
+	            if (data.result == "success") {
+	                alert("删除成功！");
+	                obj.parentNode.parentNode.parentNode.removeChild(obj.parentNode.parentNode);
+	            } else {
+	                alert(data.result);
+	            }
+	        },
+	        error:function(data){
+	        	alert(data.result);
+	        }
+		});
 	}
 }
 function getDate(date)
@@ -806,7 +755,7 @@ function getDate(date)
 	if(!isEmpty(date)){
 		return "";
 	}
-	var s = date.year+"-"+(date.month+1)+"-"+date.day;
+	var s = date.year+"-"+(date.month+1)+"-"+date.day+" "+date.hours+":"+date.minutes+":"+date.seconds;
 	return s;
 }
 function isEmpty(data){

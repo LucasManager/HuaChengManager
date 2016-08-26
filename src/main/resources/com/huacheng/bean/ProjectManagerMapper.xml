@@ -3,11 +3,6 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ProjectManagerMapper">
 
-	<insert id="addProject" parameterType="Project" keyProperty="id">
-		insert into project (cust_id,car_id,projectNo,projectType,projectName,mileage,parts_charge,labor_charge,startDate,endDate,outServiceDate,chargePerson,status,description)
-		 values (#{customer.id},#{car.id},#{projectNo},#{projectType},#{projectName},#{mileage},#{partsCharge},#{laborCharge},#{startDate},#{endDate},#{outServiceDate},#{chargePerson},#{status},#{description})
-	</insert>
-
 	<resultMap type="Project" id="projectMap">
 		<id property="id" column="pid" />
 		<result property="projectNo" column="projectNo" />
@@ -53,13 +48,16 @@
 <!-- 		pp.id ppid,pp.usedNum -->
 <!-- 		from huachengdb.project p,huachengdb.car ca,huachengdb.customer cu,huachengdb.project_parts pp -->
 <!-- 		where p.cust_id= cu.id and p.car_id = ca.id and p.id = pp.projectId -->
-select p.id pid,p.projectName,p.projectNo,p.projectType,p.mileage,p.parts_charge,
+		select p.id pid,p.projectName,p.projectNo,p.projectType,p.mileage,p.parts_charge,
 		p.labor_charge,p.startDate,p.endDate,p.chargePerson,p.description,
 		cu.id cuid,cu.name cuname,cu.phone,ca.id caid,ca.carNum,
-		pp.id ppid,pp.usedNum
-		from huachengdb.project p left join huachengdb.customer cu on p.cust_id = cu.id 
-		left join huachengdb.car ca on p.car_id = ca.id left join huachengdb.project_parts pp on p.id=pp.projectId
-		where 1=1
+		pp.id ppid,pp.usedNum,pp.partsName,pp.partsType,pp.partsNo
+		from huachengdb.project p left join huachengdb.customer cu on p.cust_id = cu.id and (cu.isdelete!='1' or cu.isdelete is null)
+		left join huachengdb.car ca on p.car_id = ca.id and (ca.isdelete!='1' or ca.isdelete is null) left join huachengdb.project_parts pp on p.id=pp.projectId and (pp.isdelete!='1' or pp.isdelete is null)
+		where (p.isdelete!='1' or p.isdelete is null)
+		<if test="id!=null and id!=0">
+			and p.id=#{id}
+		</if>
 		<if test="projectName!=null and projectName!=''">
 			and p.projectName like concat('%',#{projectName},'%')
 		</if>
@@ -69,7 +67,22 @@ select p.id pid,p.projectName,p.projectNo,p.projectType,p.mileage,p.parts_charge
 		<if test="customer!=null and customer.name!=null and customer.name!=''">
 			and cu.name like concat('%',#{customer.name},'%')
 		</if>
-		order by p.startDate desc
+		order by p.startDate asc
 	</select>
-
+	<insert id="addProject" parameterType="Project" keyProperty="id">
+		insert into project (cust_id,car_id,projectNo,projectType,projectName,mileage,parts_charge,labor_charge,startDate,endDate,outServiceDate,chargePerson,status,description)
+		 values (#{customer.id},#{car.id},#{projectNo},#{projectType},#{projectName},#{mileage},#{partsCharge},#{laborCharge},#{startDate},#{endDate},#{outServiceDate},#{chargePerson},#{status},#{description})
+	</insert>
+	
+	<update id="updateProject">
+		update project set projectType=#{projectType},projectName=#{projectName},mileage=#{mileage},startDate=#{startDate},endDate=#{endDate},
+		chargePerson=#{chargePerson},description=#{description},labor_charge=#{laborCharge}
+		where id=#{id}
+	</update>
+	
+	<update id="deleteProject">
+		update project set isdelete='1' where id=#{id}
+	</update>
+	
+	
 </mapper>

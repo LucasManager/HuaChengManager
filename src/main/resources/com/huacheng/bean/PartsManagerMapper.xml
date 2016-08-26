@@ -35,8 +35,8 @@
 		c.id,c.name,c.type,c.partsNo,c.positions,c.description,ifnull(sum(p.surplusNum),0) surplusNum
 		from car_parts c left join (select s.id,s.car_parts_id,ifnull(sum(s.num),0)-ifnull(sum(p.usedNum),0) surplusNum
 		from huachengdb.parts_store s left JOIN huachengdb.project_parts p
-		on s.id = p.car_partStoreId where (s.isDelete!='1' or s.isDelete is
-		null) and (p.isdelete!='1' or p.isdelete is null) group by s.id) p
+		on s.id = p.car_partStoreId and (p.isdelete!='1' or p.isdelete is null) where (s.isDelete!='1' or s.isDelete is
+		null) group by s.id) p
 		on
 		c.id = p.car_parts_id where c.isDelete!='1' or c.isDelete is null
 		<if test="id!=null and id!='' and id!=0">
@@ -82,9 +82,9 @@
 		select s.id,p.id as p_id,p.type,p.name,p.partsNo,s.increase_Date increaseDate,s.num,s.unit_price unitPrice,s.sell_unit_price sellUnitPrice,s.description,s.surplusNum
 		from 
 		(select ss.*,ss.num-ifnull(pp.num,0) surplusNum from huachengdb.parts_store ss left join (select ps.car_partStoreId,sum(ps.usedNum) num from huachengdb.project_parts
-		ps group by ps.car_partStoreId) pp on ss.id = pp.car_partStoreId) s,
+		ps where ps.isdelete!='1' or ps.isdelete is null group by ps.car_partStoreId) pp on ss.id = pp.car_partStoreId) s,
 		car_parts p 
-		where (s.isDelete!='1' or s.isDelete is null) and s.car_parts_id=p.id
+		where (s.isDelete!='1' or s.isDelete is null) and s.car_parts_id=p.id and s.surplusNum!=0
 		<if test="part !=null and part.id!=null and part.id!=0">
 			and s.car_parts_id = #{part.id}
 		</if>

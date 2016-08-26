@@ -68,8 +68,6 @@ public class ProjectManagerController{
 	public void selectCusCar(HttpServletRequest request,HttpServletResponse response){
 		try {
 			String str = request.getParameter("customer");
-			System.out.println("carId:" + request.getSession().getAttribute("carId") + "  sessionID:"
-					+ request.getSession().getId());
 			JSONObject fromObject = JSONObject.fromObject(str);
 			Customer customer = (Customer) JSONObject.toBean(fromObject,Customer.class);
 			List<Car> findCarCus = service.findCarCus(customer, getPB(request));
@@ -80,7 +78,35 @@ public class ProjectManagerController{
 		}
 	}
 	
+	@RequestMapping("deleteProParts")
+	@ResponseBody
+	public String deleteProjectParts(@RequestParam("projectParts") String json) throws Exception {
+		JSONObject jsonObject = JSONObject.fromObject(json);
+		ProjectParts pparts = (ProjectParts) jsonObject.toBean(jsonObject, ProjectParts.class);
+		service.deleteproParts(pparts);
+		return "{\"result\":\"success\"}";
+	}
+
+	@RequestMapping("deleteProject")
+	@ResponseBody
+	public String deleteProject(@RequestParam("project") String json) throws Exception {
+		JSONObject jsonObject = JSONObject.fromObject(json);
+		Project p = (Project) jsonObject.toBean(jsonObject, Project.class);
+		service.deleteProject(p);
+		return "{\"result\":\"success\"}";
+	}
 	
+	@RequestMapping("updateProject")
+	@ResponseBody
+	public String updateProject(@RequestParam("project") String projectStr) throws Exception {
+		JSONObject json = JSONObject.fromObject(projectStr);
+		Map<String, Class> classMap = new HashMap<String, Class>();
+		classMap.put("useParts", ProjectParts.class);
+		Project project = (Project) JSONObject.toBean(json, Project.class, classMap);
+		service.updateProject(project);
+		return "{\"result\":\"success\"}";
+	}
+
 	private PageBounds getPB(HttpServletRequest request){
 		String currentPage = request.getParameter("currentPage");
 		if (currentPage==null || currentPage.equals("")) {

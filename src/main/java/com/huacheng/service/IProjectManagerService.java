@@ -6,6 +6,7 @@ import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import com.huacheng.bean.Car;
 import com.huacheng.bean.Customer;
 import com.huacheng.bean.Project;
+import com.huacheng.bean.ProjectParts;
 
 public interface IProjectManagerService {
 
@@ -17,6 +18,8 @@ public interface IProjectManagerService {
 	
 	public void updateProject(Project project) throws Exception;
 	
+	public void deleteproParts(ProjectParts pp) throws Exception;
 	
+	public void deleteProject(Project project) throws Exception;
 	
 }
