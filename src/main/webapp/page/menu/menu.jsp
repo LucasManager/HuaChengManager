@@ -45,7 +45,7 @@
             </a>
         </li>
         <li>
-            <a href="../page/print.html" target="right">
+            <a href="page/service/print.jsp" target="right">
                 <i class="icon-print"></i>
                 <span>票据打印</span>
             </a>
