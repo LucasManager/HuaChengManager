@@ -67,6 +67,15 @@
 		<if test="customer!=null and customer.name!=null and customer.name!=''">
 			and cu.name like concat('%',#{customer.name},'%')
 		</if>
+		<choose>
+			<when test="status=='0'.toString()">
+				and p.endDate is not null
+			</when>
+			<when test="status=='1'.toString()">
+				and p.endDate is null
+			</when>
+			<otherwise></otherwise>
+		</choose>
 		order by p.startDate asc
 	</select>
 	<insert id="addProject" parameterType="Project" keyProperty="id">
