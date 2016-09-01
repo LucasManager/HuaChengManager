@@ -11,6 +11,11 @@
 <base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@include file="/page/head/head.jsp"%>
+<style type="text/css">
+.myprintContent{
+	left: -200px;
+}
+</style>
 </head>
 <body>
 	<div class="height_40"></div>
@@ -24,24 +29,23 @@
 					<div class="height_40 background_364150">
 						<div class="height_40 float_left background_293846">
 							<div class="float_left">
-								<input type="text" name="projectNo"
+								<input type="text" id="ppName"
 									class="object_search argin_l_15" placeholder="服务名称名称">
-								<input type="text" name="projectName" class="object_search"
-									placeholder="服务类型"> <input type="text"
-									name="projectName" class="object_search" placeholder="客户名称">
-								<input type="submit" class="input_hide" id="searchButtom">
+								<input type="text" id="ppType" class="object_search"
+									placeholder="服务类型"> 
+									<input type="text"
+									id="pcName" class="object_search" placeholder="客户名称">
 								<select class="object_search" id="searchStatus">
 									<option value="">当前服务状态</option>
 									<option value="0">已完成</option>
 									<option value="1">未完成</option>
 								</select>
 							</div>
-							<span onclick="$('#searchButtom').click()"
+							<span  id="searchDataGrid"
 								class="table_search_submit">&nbsp;<i
 								class="glyphicon glyphicon-search" style="font-size: 18px"></i>&nbsp;
 							</span>
 						</div>
-
 						<span data-toggle="modal" data-target="#addService"
 							id="addProjectBtn" class=" float_right object_addobject"
 							title="新增服务"><i class="glyphicon glyphicon-plus-sign"></i>新增服务</span>
@@ -58,7 +62,8 @@
 								<!-- 								<th class="">是否完成</th> -->
 								<th class="">详情</th>
 								<th class="">描述</th>
-								<th colspan="2" class="clo-sm-1">编辑操作</th>
+								<th>打印</th>
+								<th class="clo-sm-1">编辑操作</th>
 							</tr>
 						</thead>
 						<tbody id="serviceGrid">
@@ -297,94 +302,121 @@
 	<div class="modal fade" id="showServiceDetial" tabindex="-1"
 		role="dialog">
 		<div class="modal-dialog" role="document">
-			<div class="modal-content">
+			<div class="modal-content  width_700">
 				<div class="modal-header">
-					<h3>张三 服务器信息信息</h3>
+					<h3>服务信息</h3>
 				</div>
 				<div class="modal-body">
 					<div class="form-horizontal">
 						<div class="form-group">
 							<label for="partsType" class="col-sm-3 control-label">客户名称：</label>
 							<div class="col-sm-9">
-								<label class="form-control" id="" placeholder=""></label>
+								<label class="form-control" id="sname" ></label>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="partsType" class="col-sm-3 control-label">手机号：</label>
 							<div class="col-sm-9">
-								<label class="form-control" id="" placeholder=""></label>
+								<label class="form-control" id="sphone" ></label>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="partsType" class="col-sm-3 control-label">车牌号：</label>
 							<div class="col-sm-9">
-								<label class="form-control" id="" placeholder=""></label>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="partsType" class="col-sm-3 control-label">车辆颜色：</label>
-							<div class="col-sm-9">
-								<label class="form-control" id="" placeholder=""></label>
+								<label class="form-control" id="scarNo" ></label>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="partsType" class="col-sm-3 control-label">服务名称：</label>
 							<div class="col-sm-9">
-								<label class="form-control" id="" placeholder=""></label>
+								<label class="form-control" id="sserviceName" ></label>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="partsType" class="col-sm-3 control-label">服务类型：</label>
 							<div class="col-sm-9">
-								<label class="form-control" id="" placeholder=""></label>
+								<label class="form-control" id="sserviceType" ></label>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="partsType" class="col-sm-3 control-label">使用配件：</label>
 							<div class="col-sm-9">
-								<label class="form-control" id="" placeholder=""></label>
+								<table class="table table-hover table-bordered col-lg-3">
+									<thead>
+										<th class="display-none">配件Id</th>
+										<th>配件名称</th>
+										<th>型号</th>
+										<th>配件个数</th>
+									</thead>
+									<tbody id="spart">
+
+									</tbody>
+								</table>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="partsType" class="col-sm-3 control-label">配件总价格：</label>
 							<div class="col-sm-9">
-								<label class="form-control" id="" placeholder=""></label>
+								<label class="form-control" id="spartsPrice" ></label>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="partsType" class="col-sm-3 control-label">其他服务费用：</label>
+							<label for="partsType" class="col-sm-3 control-label">工时费：</label>
 							<div class="col-sm-9">
-								<label class="form-control" id="" placeholder=""></label>
+								<label class="form-control" id="sloaberPrice" ></label>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="partsType" class="col-sm-3 control-label">开始日期：</label>
 							<div class="col-sm-9">
-								<label class="form-control" id="" placeholder=""></label>
+								<label class="form-control" id="sstartDate" ></label>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="partsType" class="col-sm-3 control-label">结束日期：</label>
 							<div class="col-sm-9">
-								<label class="form-control" id="" placeholder=""></label>
+								<label class="form-control" id="sendDate" ></label>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="partsType" class="col-sm-3 control-label">负责人：</label>
 							<div class="col-sm-9">
-								<label class="form-control" id="" placeholder=""></label>
+								<label class="form-control" id="schargePerson" ></label>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="partsType" class="col-sm-3 control-label">备注：</label>
 							<div class="col-sm-9">
-								<label class="form-control" id="" placeholder="备注说明"></label>
+								<textarea  class="form-control" id="sdescription" disabled></textarea>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+		<div class="modal fade" id="printArea" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content div_width_1000 myprintContent">
+				<div class="modal-header">
+					<h3>打印界面</h3>
+				</div>
+				<div class="modal-body">
+					<div id="printDemo" class="container text-center">
+						<div
+							style="z-index: -1; opacity: 0.4; position: absolute; width: 100%; align-content: center"
+							id="watermark">
+							<img src="/page/printPage/1.gif">
+						</div>
+						<div id="content"></div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					<button type="button" class="btn btn-primary" id="printBtn">打印</button>
 				</div>
 			</div>
 		</div>
@@ -430,6 +462,10 @@ $(document).ready(function(){
 		forceParse: 0,
 		showMeridian: 1,
 		minView:2
+	});
+	$("#searchDataGrid").click(function(e){
+		var p = {projectName:$("#ppName").val(),projectType:$("#ppType").val(),customer:{name:$("#pcName").val()},status:$("#searchStatus option:selected").val()};
+		loadDataGrid(p,0);	
 	});
 	loadDataGrid({},0);
 	$("#searchUserBtn").click(function(e){
@@ -481,6 +517,11 @@ $(document).ready(function(){
 		$("#searchUserBtn").removeAttr("disabled");
 		$("#conformProject").removeAttr("data-dismiss");
 	});
+	
+	
+	$("#printBtn").click(function (e) {
+        $("#printDemo").printArea();
+    });
 	
 })
 function deletecache(id,obj){
@@ -545,7 +586,8 @@ function loadDataGrid(project,currentPage){
 				for(var i=0;i<data.length;i++){
 					var p = data[i];
 					content = content.concat("<tr><td>"+p.projectName+"</td><td>"+p.projectType+"</td><td>"+p.customer.name+"</td><td>"+p.car.carNum+"</td>"+
-							"<td>"+getDate(p.startDate)+"</td><td>"+getDate(p.endDate)+"</td><td><a data-toggle='modal' data-target='#'>详情</a></td><td>"+p.description+"</td>"+
+							"<td>"+getDate(p.startDate)+"</td><td>"+getDate(p.endDate)+"</td><td><a data-toggle='modal' data-target='#showServiceDetial' onclick='showService("+p.id+")'>详情</a></td><td>"+p.description+"</td>"+
+							"<td><a href='javacript:void(0)' title='打印票据' onclick='popPrint("+p.id+")' data-toggle='modal' data-target='#printArea'> <i class='glyphicon glyphicon-print'></i></a></td>"+
 							"<td><a href='javacript:void(0)' title='修改' onclick='updateProject("+p.id+")' data-toggle='modal' data-target='#addService'> <i class='glyphicon glyphicon-edit'></i></a>"+
 							"<a href='javacript:void(0)' title='删除' onclick='deleteProject("+p.id+",this)' class='btn-margin_5'><i class='glyphicon glyphicon-trash'></i></td></tr>");
 				}
@@ -554,6 +596,45 @@ function loadDataGrid(project,currentPage){
 		},
 		error:function(error){
 			alert("查询失败,请重试！");
+		}
+	});
+}
+
+function showService(pid){
+	$("#searchUserBtn").attr("disabled","disabled");
+	$("#conformProject").attr("onclick","ConfirmUpdateProject("+pid+")");
+	$("#conformProject").removeAttr("dismiss");
+	var p = {id:pid};
+	$.ajax({
+		url:"project/findProject.do",
+		method:"GET",
+		data:{
+			project:JSON.stringify(p)
+		},
+		dataType:"json",
+		success:function(data){
+			if(isEmpty(data) && data.length==1){
+				var pp=data[0];
+				$("#sname").text(pp.customer.name);
+				$("#sphone").text(pp.customer.phone);
+				$("#scarNo").text(pp.car.carNum);
+				$("#sserviceName").text(pp.projectName);
+				$("#sserviceType").text(pp.projectType);
+				$("#spartsPrice").text(pp.partsCharge);
+				$("#sloaberPrice").text(pp.laborCharge);
+				$("#sstartDate").text(getDate(pp.startDate));
+				$("#sendDate").text(getDate(pp.endDate));
+				$("#schargePerson").text(pp.chargePerson);
+				$("#sdescription").text(pp.description);
+				var content = "";
+				if(isEmpty(pp.useParts) && pp.useParts.length!=0){
+					for(var i=0;i<pp.useParts.length;i++){
+						var p = pp.useParts[i];
+						content =content.concat("<tr><td>"+p.partsName+"</td><td>"+p.partsNo+"</td><td>"+p.useNum+"</td></tr>");
+					}
+				}
+				$("#spart").html(content);
+			}		
 		}
 	});
 }
@@ -664,8 +745,6 @@ function saveProject(){
 	})
 }
 
-
-
 function findPartsStore(partsStore){
 	$("#partsTable").html("");
 	$("#partNum").val("");
@@ -750,6 +829,11 @@ function deleteProject(projectId, obj) {
 		});
 	}
 }
+
+function popPrint(pp){
+	$("#content").load("/page/printPage/servicePrint.html");
+}
+
 function getDate(date)
 {
 	if(!isEmpty(date)){
