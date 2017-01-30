@@ -16,17 +16,15 @@
 </head>
 <body>
 	<div class="panel border_364150 width_980  div_margin_center">
-		<form id="searchTerms" action="" method="post" class="margin_0">
 			<div class="height_40 background_364150">
 				<div class="height_40 float_left background_293846">
 					<div class="float_left width_300">
-						<input type="text" name="projectNo"
-							class="object_search argin_l_15" placeholder="配件名称"> <input
-							type="text" name="projectName" class="object_search"
-							placeholder="配件型号"> <input type="submit"
-							class="input_hide" id="searchButtom">
+						<input type="text"  id="ppNa"
+							class="object_search argin_l_15" placeholder="配件名称"> 
+							<input type="text" class="object_search" id="ppTy"
+							placeholder="配件型号">
 					</div>
-					<span onclick="$('#searchButtom').click()"
+					<span onclick="" id="searchButtom"
 						class="table_search_submit">&nbsp;<i
 						class="glyphicon glyphicon-search" style="font-size: 18px"></i>&nbsp;
 					</span>
@@ -54,13 +52,12 @@
 				<tfoot>
 					<tr>
 						<td colspan="9">
-							<button class="btn btn-primary">上一页</button>
-							<button class="btn btn-primary">下一页</button>
+							<button class="btn btn-primary" id="prePage">上一页</button>
+							<button class="btn btn-primary" id="nexPage">下一页</button>
 						</td>
 					</tr>
 				</tfoot>
 			</table>
-		</form>
 		<div style="clear: both"></div>
 	</div>
 
@@ -214,6 +211,8 @@
 	</div>
 </div>
 <script type="text/javascript">
+
+var currentPageIndex = 1;
 $(document).ready(function() {
 	$('#addPartDate').datetimepicker({
 		language : 'zh-CN',
@@ -232,15 +231,30 @@ $(document).ready(function() {
 		confirmStoreClick();
 	});
 	
+	$("#searchButtom").click(function(e){
+		loadPartsGrid($("#ppNa").val(), $("#ppTy").val(),0);
+	});
+	$("#prePage").click(function(){
+		currentPageIndex = currentPageIndex-1;
+		if(currentPageIndex<0){
+			currentPageIndex = 0;
+		}
+		loadPartsGrid($("#ppNa").val(), $("#ppTy").val(),currentPageIndex);
+	});
+	$("#nexPage").click(function(){
+		currentPageIndex = currentPageIndex+1;
+		loadPartsGrid($("#ppNa").val(), $("#ppTy").val(),currentPageIndex);
+	});
+	
 });
 
-function loadPartsGrid(partName,partType,currentPage){
+function loadPartsGrid(partName,partsNo,currentPage){
 	$.ajax({
 		type:"POST",
 		url:"partsManager/findParts.do",
 		data:{
 			name:partName,
-			type:partType,
+			partsNo:partsNo,
 			currentPage:currentPage
 		},
 		dataType:"json",
@@ -255,6 +269,16 @@ function loadPartsGrid(partName,partType,currentPage){
 							"<a href='javascript:void(0)' title='修改' data-toggle='modal' data-target='#addParts' onclick='updateParts("+part.id+")'  class='btn-margin_5'><i class='glyphicon glyphicon-edit'></i></a>"+
 							"<a href='javascript:void(0)' title='删除'  onclick='deleteParts("+part.id+",this)' class='btn-margin_5'><i class='glyphicon glyphicon-trash'></i></a></td></tr>");
 				}
+			}
+			if(data.length<10){
+				$("#nexPage").attr("disabled","true");
+			}else{
+				$("#nexPage").removeAttr("disabled");
+			}
+			if(currentPageIndex==0 ||currentPageIndex==1){
+				$("#prePage").attr("disabled","true");
+			}else{
+				$("#prePage").removeAttr("disabled");
 			}
 			$("#partStore").html(content);
 		}

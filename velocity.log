@@ -1,0 +1,424 @@
+2016-11-19 17:58:33,194 - Initializing Velocity, Calling init()...
+2016-11-19 17:58:33,194 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2016-11-19 17:58:33,194 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2016-11-19 17:58:33,194 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2016-11-19 17:58:33,194 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2016-11-19 17:58:33,194 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-11-19 17:58:33,194 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-11-19 17:58:33,201 - ResourceLoader instantiated: com.huacheng.utils.MyResourceLoader
+2016-11-19 17:58:33,211 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2016-11-19 17:58:33,213 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2016-11-19 17:58:33,215 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2016-11-19 17:58:33,215 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2016-11-19 17:58:33,216 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2016-11-19 17:58:33,217 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2016-11-19 17:58:33,218 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2016-11-19 17:58:33,220 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2016-11-19 17:58:33,221 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2016-11-19 17:58:33,223 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2016-11-19 17:58:33,458 - Created '20' parsers.
+2016-11-19 17:58:33,464 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2016-11-19 17:58:33,465 - Could not load resource 'VM_global_library.vm' from ResourceLoader com.huacheng.utils.MyResourceLoader: FileResourceLoader : cannot find /VM_global_library.vm
+2016-11-19 17:58:33,465 - Velocimacro : Default library not found.
+2016-11-19 17:58:33,465 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2016-11-19 17:58:33,465 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2016-11-19 17:58:33,465 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2016-11-19 17:58:33,465 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2016-11-19 17:58:33,466 - ResourceManager : unable to find resource 'classpath:template/servicePrint.html' in any resource loader.
+2016-11-19 18:06:41,247 - Log4JLogChute initialized using file 'velocity.log'
+2016-11-19 18:06:41,247 - Initializing Velocity, Calling init()...
+2016-11-19 18:06:41,247 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2016-11-19 18:06:41,247 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2016-11-19 18:06:41,247 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2016-11-19 18:06:41,248 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2016-11-19 18:06:41,248 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-11-19 18:06:41,248 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-11-19 18:06:41,258 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2016-11-19 18:06:41,260 - Do unicode file recognition:  false
+2016-11-19 18:06:41,260 - FileResourceLoader : adding path '.'
+2016-11-19 18:06:41,282 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2016-11-19 18:06:41,285 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2016-11-19 18:06:41,287 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2016-11-19 18:06:41,288 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2016-11-19 18:06:41,289 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2016-11-19 18:06:41,290 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2016-11-19 18:06:41,292 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2016-11-19 18:06:41,295 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2016-11-19 18:06:41,297 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2016-11-19 18:06:41,299 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2016-11-19 18:06:41,366 - Created '20' parsers.
+2016-11-19 18:06:41,376 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2016-11-19 18:06:41,376 - Velocimacro : Default library not found.
+2016-11-19 18:06:41,377 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2016-11-19 18:06:41,377 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2016-11-19 18:06:41,377 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2016-11-19 18:06:41,377 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2016-11-19 18:06:41,380 - ResourceManager : unable to find resource 'C:\template.html' in any resource loader.
+2016-11-20 14:22:21,514 - Log4JLogChute initialized using file 'velocity.log'
+2016-11-20 14:22:21,534 - Initializing Velocity, Calling init()...
+2016-11-20 14:22:21,534 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2016-11-20 14:22:21,534 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2016-11-20 14:22:21,534 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2016-11-20 14:22:21,534 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2016-11-20 14:22:21,534 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-11-20 14:22:21,534 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-11-20 14:22:21,539 - ResourceLoader instantiated: com.huacheng.utils.MyResourceLoader
+2016-11-20 14:22:21,549 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2016-11-20 14:22:21,551 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2016-11-20 14:22:21,553 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2016-11-20 14:22:21,553 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2016-11-20 14:22:21,554 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2016-11-20 14:22:21,554 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2016-11-20 14:22:21,556 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2016-11-20 14:22:21,557 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2016-11-20 14:22:21,558 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2016-11-20 14:22:21,559 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2016-11-20 14:22:21,615 - Created '20' parsers.
+2016-11-20 14:22:21,624 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2016-11-20 14:22:21,625 - Could not load resource 'VM_global_library.vm' from ResourceLoader com.huacheng.utils.MyResourceLoader: FileResourceLoader : cannot find /VM_global_library.vm
+2016-11-20 14:22:21,625 - Velocimacro : Default library not found.
+2016-11-20 14:22:21,625 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2016-11-20 14:22:21,625 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2016-11-20 14:22:21,625 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2016-11-20 14:22:21,625 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2016-11-20 14:22:21,660 - ResourceManager : found /E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html with loader com.huacheng.utils.MyResourceLoader
+2016-11-20 14:22:21,672 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:21,672 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:21,672 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:21,672 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:21,673 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:21,673 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:27,579 - Log4JLogChute initialized using file 'velocity.log'
+2016-11-20 14:22:27,579 - Log4JLogChute initialized using file 'velocity.log'
+2016-11-20 14:22:27,580 - Initializing Velocity, Calling init()...
+2016-11-20 14:22:27,580 - Initializing Velocity, Calling init()...
+2016-11-20 14:22:27,580 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2016-11-20 14:22:27,580 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2016-11-20 14:22:27,580 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2016-11-20 14:22:27,580 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2016-11-20 14:22:27,580 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2016-11-20 14:22:27,580 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2016-11-20 14:22:27,580 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2016-11-20 14:22:27,580 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2016-11-20 14:22:27,580 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-11-20 14:22:27,580 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-11-20 14:22:27,580 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-11-20 14:22:27,580 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-11-20 14:22:27,580 - ResourceLoader instantiated: com.huacheng.utils.MyResourceLoader
+2016-11-20 14:22:27,580 - ResourceLoader instantiated: com.huacheng.utils.MyResourceLoader
+2016-11-20 14:22:27,580 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2016-11-20 14:22:27,580 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2016-11-20 14:22:27,581 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2016-11-20 14:22:27,581 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2016-11-20 14:22:27,581 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2016-11-20 14:22:27,581 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2016-11-20 14:22:27,581 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2016-11-20 14:22:27,581 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2016-11-20 14:22:27,581 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2016-11-20 14:22:27,581 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2016-11-20 14:22:27,581 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2016-11-20 14:22:27,581 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2016-11-20 14:22:27,581 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2016-11-20 14:22:27,581 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2016-11-20 14:22:27,581 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2016-11-20 14:22:27,581 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2016-11-20 14:22:27,581 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2016-11-20 14:22:27,581 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2016-11-20 14:22:27,582 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2016-11-20 14:22:27,582 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2016-11-20 14:22:27,583 - Created '20' parsers.
+2016-11-20 14:22:27,583 - Created '20' parsers.
+2016-11-20 14:22:27,583 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2016-11-20 14:22:27,583 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2016-11-20 14:22:27,584 - Could not load resource 'VM_global_library.vm' from ResourceLoader com.huacheng.utils.MyResourceLoader: FileResourceLoader : cannot find /VM_global_library.vm
+2016-11-20 14:22:27,584 - Could not load resource 'VM_global_library.vm' from ResourceLoader com.huacheng.utils.MyResourceLoader: FileResourceLoader : cannot find /VM_global_library.vm
+2016-11-20 14:22:27,584 - Velocimacro : Default library not found.
+2016-11-20 14:22:27,584 - Velocimacro : Default library not found.
+2016-11-20 14:22:27,584 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2016-11-20 14:22:27,584 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2016-11-20 14:22:27,584 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2016-11-20 14:22:27,584 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2016-11-20 14:22:27,584 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2016-11-20 14:22:27,584 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2016-11-20 14:22:27,584 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2016-11-20 14:22:27,584 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2016-11-20 14:22:27,588 - ResourceManager : found /E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html with loader com.huacheng.utils.MyResourceLoader
+2016-11-20 14:22:27,588 - ResourceManager : found /E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html with loader com.huacheng.utils.MyResourceLoader
+2016-11-20 14:22:27,589 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:27,589 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:27,589 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:27,589 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:27,590 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:27,590 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:27,590 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:27,590 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:27,590 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:27,590 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:27,590 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:27,590 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:27,590 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:27,590 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:27,590 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:27,590 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:37,780 - Log4JLogChute initialized using file 'velocity.log'
+2016-11-20 14:22:37,780 - Log4JLogChute initialized using file 'velocity.log'
+2016-11-20 14:22:37,780 - Log4JLogChute initialized using file 'velocity.log'
+2016-11-20 14:22:37,783 - Initializing Velocity, Calling init()...
+2016-11-20 14:22:37,783 - Initializing Velocity, Calling init()...
+2016-11-20 14:22:37,783 - Initializing Velocity, Calling init()...
+2016-11-20 14:22:37,783 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2016-11-20 14:22:37,783 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2016-11-20 14:22:37,783 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2016-11-20 14:22:37,783 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2016-11-20 14:22:37,783 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2016-11-20 14:22:37,783 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2016-11-20 14:22:37,783 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2016-11-20 14:22:37,783 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2016-11-20 14:22:37,783 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2016-11-20 14:22:37,784 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2016-11-20 14:22:37,784 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2016-11-20 14:22:37,784 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2016-11-20 14:22:37,784 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-11-20 14:22:37,784 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-11-20 14:22:37,784 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-11-20 14:22:37,784 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-11-20 14:22:37,784 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-11-20 14:22:37,784 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-11-20 14:22:37,784 - ResourceLoader instantiated: com.huacheng.utils.MyResourceLoader
+2016-11-20 14:22:37,784 - ResourceLoader instantiated: com.huacheng.utils.MyResourceLoader
+2016-11-20 14:22:37,784 - ResourceLoader instantiated: com.huacheng.utils.MyResourceLoader
+2016-11-20 14:22:37,784 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2016-11-20 14:22:37,784 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2016-11-20 14:22:37,784 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2016-11-20 14:22:37,784 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2016-11-20 14:22:37,784 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2016-11-20 14:22:37,784 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2016-11-20 14:22:37,784 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2016-11-20 14:22:37,784 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2016-11-20 14:22:37,784 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2016-11-20 14:22:37,785 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2016-11-20 14:22:37,785 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2016-11-20 14:22:37,785 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2016-11-20 14:22:37,785 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2016-11-20 14:22:37,785 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2016-11-20 14:22:37,785 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2016-11-20 14:22:37,785 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2016-11-20 14:22:37,785 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2016-11-20 14:22:37,785 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2016-11-20 14:22:37,785 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2016-11-20 14:22:37,785 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2016-11-20 14:22:37,785 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2016-11-20 14:22:37,785 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2016-11-20 14:22:37,785 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2016-11-20 14:22:37,785 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2016-11-20 14:22:37,785 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2016-11-20 14:22:37,785 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2016-11-20 14:22:37,785 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2016-11-20 14:22:37,785 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2016-11-20 14:22:37,785 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2016-11-20 14:22:37,785 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2016-11-20 14:22:37,786 - Created '20' parsers.
+2016-11-20 14:22:37,786 - Created '20' parsers.
+2016-11-20 14:22:37,786 - Created '20' parsers.
+2016-11-20 14:22:37,786 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2016-11-20 14:22:37,786 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2016-11-20 14:22:37,786 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2016-11-20 14:22:37,787 - Could not load resource 'VM_global_library.vm' from ResourceLoader com.huacheng.utils.MyResourceLoader: FileResourceLoader : cannot find /VM_global_library.vm
+2016-11-20 14:22:37,787 - Could not load resource 'VM_global_library.vm' from ResourceLoader com.huacheng.utils.MyResourceLoader: FileResourceLoader : cannot find /VM_global_library.vm
+2016-11-20 14:22:37,787 - Could not load resource 'VM_global_library.vm' from ResourceLoader com.huacheng.utils.MyResourceLoader: FileResourceLoader : cannot find /VM_global_library.vm
+2016-11-20 14:22:37,787 - Velocimacro : Default library not found.
+2016-11-20 14:22:37,787 - Velocimacro : Default library not found.
+2016-11-20 14:22:37,787 - Velocimacro : Default library not found.
+2016-11-20 14:22:37,787 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2016-11-20 14:22:37,787 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2016-11-20 14:22:37,787 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2016-11-20 14:22:37,787 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2016-11-20 14:22:37,787 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2016-11-20 14:22:37,787 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2016-11-20 14:22:37,787 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2016-11-20 14:22:37,787 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2016-11-20 14:22:37,787 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2016-11-20 14:22:37,787 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2016-11-20 14:22:37,787 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2016-11-20 14:22:37,787 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2016-11-20 14:22:37,789 - ResourceManager : found /E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html with loader com.huacheng.utils.MyResourceLoader
+2016-11-20 14:22:37,789 - ResourceManager : found /E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html with loader com.huacheng.utils.MyResourceLoader
+2016-11-20 14:22:37,789 - ResourceManager : found /E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html with loader com.huacheng.utils.MyResourceLoader
+2016-11-20 14:22:37,790 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:37,790 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:37,790 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:37,790 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:37,790 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:37,790 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:37,790 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:37,790 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:37,790 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:37,790 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:37,790 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:37,790 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:37,791 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:37,791 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:37,791 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:37,791 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:37,791 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-11-20 14:22:37,791 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-11-20 15:56:22,789 - Log4JLogChute initialized using file 'velocity.log'
+2016-11-20 15:56:22,816 - Initializing Velocity, Calling init()...
+2016-11-20 15:56:22,816 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2016-11-20 15:56:22,816 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2016-11-20 15:56:22,817 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2016-11-20 15:56:22,817 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2016-11-20 15:56:22,817 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-11-20 15:56:22,817 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-11-20 15:56:22,822 - ResourceLoader instantiated: com.huacheng.utils.MyResourceLoader
+2016-11-20 15:56:22,835 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2016-11-20 15:56:22,837 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2016-11-20 15:56:22,838 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2016-11-20 15:56:22,839 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2016-11-20 15:56:22,840 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2016-11-20 15:56:22,841 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2016-11-20 15:56:22,842 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2016-11-20 15:56:22,844 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2016-11-20 15:56:22,846 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2016-11-20 15:56:22,848 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2016-11-20 15:56:23,048 - Created '20' parsers.
+2016-11-20 15:56:23,053 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2016-11-20 15:56:23,054 - Could not load resource 'VM_global_library.vm' from ResourceLoader com.huacheng.utils.MyResourceLoader: FileResourceLoader : cannot find /VM_global_library.vm
+2016-11-20 15:56:23,054 - Velocimacro : Default library not found.
+2016-11-20 15:56:23,054 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2016-11-20 15:56:23,054 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2016-11-20 15:56:23,054 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2016-11-20 15:56:23,054 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2016-11-20 15:56:23,100 - ResourceManager : found /E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html with loader com.huacheng.utils.MyResourceLoader
+2016-12-04 15:36:39,435 - Log4JLogChute initialized using file 'velocity.log'
+2016-12-04 15:36:39,456 - Initializing Velocity, Calling init()...
+2016-12-04 15:36:39,456 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2016-12-04 15:36:39,456 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2016-12-04 15:36:39,456 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2016-12-04 15:36:39,456 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2016-12-04 15:36:39,456 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-12-04 15:36:39,456 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-12-04 15:36:39,461 - ResourceLoader instantiated: com.huacheng.utils.MyResourceLoader
+2016-12-04 15:36:39,471 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2016-12-04 15:36:39,472 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2016-12-04 15:36:39,473 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2016-12-04 15:36:39,474 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2016-12-04 15:36:39,475 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2016-12-04 15:36:39,475 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2016-12-04 15:36:39,476 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2016-12-04 15:36:39,477 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2016-12-04 15:36:39,479 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2016-12-04 15:36:39,480 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2016-12-04 15:36:39,524 - Created '20' parsers.
+2016-12-04 15:36:39,530 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2016-12-04 15:36:39,531 - Could not load resource 'VM_global_library.vm' from ResourceLoader com.huacheng.utils.MyResourceLoader: FileResourceLoader : cannot find /VM_global_library.vm
+2016-12-04 15:36:39,531 - Velocimacro : Default library not found.
+2016-12-04 15:36:39,531 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2016-12-04 15:36:39,531 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2016-12-04 15:36:39,531 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2016-12-04 15:36:39,531 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2016-12-04 15:36:39,556 - ResourceManager : found /E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html with loader com.huacheng.utils.MyResourceLoader
+2016-12-04 15:36:52,135 - Log4JLogChute initialized using file 'velocity.log'
+2016-12-04 15:36:52,135 - Log4JLogChute initialized using file 'velocity.log'
+2016-12-04 15:36:52,135 - Initializing Velocity, Calling init()...
+2016-12-04 15:36:52,135 - Initializing Velocity, Calling init()...
+2016-12-04 15:36:52,135 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2016-12-04 15:36:52,135 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2016-12-04 15:36:52,135 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2016-12-04 15:36:52,135 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2016-12-04 15:36:52,135 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2016-12-04 15:36:52,135 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2016-12-04 15:36:52,135 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2016-12-04 15:36:52,135 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2016-12-04 15:36:52,135 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-12-04 15:36:52,135 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-12-04 15:36:52,135 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-12-04 15:36:52,135 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-12-04 15:36:52,135 - ResourceLoader instantiated: com.huacheng.utils.MyResourceLoader
+2016-12-04 15:36:52,135 - ResourceLoader instantiated: com.huacheng.utils.MyResourceLoader
+2016-12-04 15:36:52,136 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2016-12-04 15:36:52,136 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2016-12-04 15:36:52,136 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2016-12-04 15:36:52,136 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2016-12-04 15:36:52,136 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2016-12-04 15:36:52,136 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2016-12-04 15:36:52,137 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2016-12-04 15:36:52,137 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2016-12-04 15:36:52,137 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2016-12-04 15:36:52,137 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2016-12-04 15:36:52,137 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2016-12-04 15:36:52,137 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2016-12-04 15:36:52,137 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2016-12-04 15:36:52,137 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2016-12-04 15:36:52,137 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2016-12-04 15:36:52,137 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2016-12-04 15:36:52,137 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2016-12-04 15:36:52,137 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2016-12-04 15:36:52,137 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2016-12-04 15:36:52,137 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2016-12-04 15:36:52,139 - Created '20' parsers.
+2016-12-04 15:36:52,139 - Created '20' parsers.
+2016-12-04 15:36:52,139 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2016-12-04 15:36:52,139 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2016-12-04 15:36:52,139 - Could not load resource 'VM_global_library.vm' from ResourceLoader com.huacheng.utils.MyResourceLoader: FileResourceLoader : cannot find /VM_global_library.vm
+2016-12-04 15:36:52,139 - Could not load resource 'VM_global_library.vm' from ResourceLoader com.huacheng.utils.MyResourceLoader: FileResourceLoader : cannot find /VM_global_library.vm
+2016-12-04 15:36:52,139 - Velocimacro : Default library not found.
+2016-12-04 15:36:52,139 - Velocimacro : Default library not found.
+2016-12-04 15:36:52,139 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2016-12-04 15:36:52,139 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2016-12-04 15:36:52,139 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2016-12-04 15:36:52,139 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2016-12-04 15:36:52,140 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2016-12-04 15:36:52,140 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2016-12-04 15:36:52,140 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2016-12-04 15:36:52,140 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2016-12-04 15:36:52,143 - ResourceManager : found /E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html with loader com.huacheng.utils.MyResourceLoader
+2016-12-04 15:36:52,143 - ResourceManager : found /E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html with loader com.huacheng.utils.MyResourceLoader
+2016-12-04 15:36:52,148 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-12-04 15:36:52,148 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-12-04 15:36:52,148 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-12-04 15:36:52,148 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-12-04 15:36:52,148 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-12-04 15:36:52,148 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-12-04 15:36:52,148 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-12-04 15:36:52,148 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-12-04 15:36:52,148 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-12-04 15:36:52,148 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-12-04 15:36:52,149 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-12-04 15:36:52,149 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-12-04 15:46:18,365 - Log4JLogChute initialized using file 'velocity.log'
+2016-12-04 15:46:18,365 - Initializing Velocity, Calling init()...
+2016-12-04 15:46:18,365 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2016-12-04 15:46:18,365 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2016-12-04 15:46:18,365 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2016-12-04 15:46:18,365 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2016-12-04 15:46:18,365 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-12-04 15:46:18,365 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-12-04 15:46:18,366 - ResourceLoader instantiated: com.huacheng.utils.MyResourceLoader
+2016-12-04 15:46:18,366 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2016-12-04 15:46:18,366 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2016-12-04 15:46:18,366 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2016-12-04 15:46:18,366 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2016-12-04 15:46:18,366 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2016-12-04 15:46:18,366 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2016-12-04 15:46:18,366 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2016-12-04 15:46:18,367 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2016-12-04 15:46:18,367 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2016-12-04 15:46:18,367 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2016-12-04 15:46:18,368 - Created '20' parsers.
+2016-12-04 15:46:18,368 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2016-12-04 15:46:18,369 - Could not load resource 'VM_global_library.vm' from ResourceLoader com.huacheng.utils.MyResourceLoader: FileResourceLoader : cannot find /VM_global_library.vm
+2016-12-04 15:46:18,369 - Velocimacro : Default library not found.
+2016-12-04 15:46:18,369 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2016-12-04 15:46:18,369 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2016-12-04 15:46:18,369 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2016-12-04 15:46:18,369 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2016-12-04 15:46:18,372 - ResourceManager : found /E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html with loader com.huacheng.utils.MyResourceLoader
+2016-12-04 15:46:18,373 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-12-04 15:46:18,373 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-12-04 15:46:18,373 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-12-04 15:46:18,373 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-12-04 15:46:18,373 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-12-04 15:46:18,373 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.
+2016-12-04 15:46:18,373 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 26, column 22] : ${part.partsName} cannot be resolved.
+2016-12-04 15:46:18,373 - Null reference [template '/E:/eclipseworkspace/huacheng/HuaChengManager/target/classes/template/servicePrint.html', line 27, column 17] : ${part.partsName} cannot be resolved.

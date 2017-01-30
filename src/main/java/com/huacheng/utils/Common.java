@@ -24,6 +24,9 @@ public class Common {
 	
 	public static final String dateFormate = "yyyy-MM-dd HH:mm:ss";
 	
+	
+	
+	
 	/**
 	 * 把字符串日期转换为sql日期
 	 * @param date

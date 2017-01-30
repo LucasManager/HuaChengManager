@@ -1,4 +1,4 @@
-drop database huachengdb;
+﻿drop database huachengdb;
 create database huachengdb;
 use huachengdb;
 
@@ -11,8 +11,8 @@ create table customer(
 	phone			varchar(50), 
 	address 		varchar(200),
 	description 	varchar(500),
-	createDate		datetime,		/**新增时间**/
-	isDelete		varchar(2), /** 1标识已删除 **/
+	createDate		datetime comment '新增时间',
+	isDelete		varchar(2) comment '1标识已删除',
 	UTD1 			varchar(200),
 	UTD2 			varchar(200)
 );
@@ -23,9 +23,9 @@ create table car(
 	carNum 		varchar(100),
 	createDate	datetime,
 	car_color 	varchar(50),
-	VIN			varchar(50),/**车架识别码**/
+	VIN			varchar(50) comment '车架识别码',
 	description varchar(200),
-	isDelete	varchar(2),	/** 1标识已删除 **/
+	isDelete	varchar(2) comment '1标识已删除',
 	UTD1 		varchar(200),
 	UTD2 		varchar(200),
 	foreign key(cust_id) REFERENCES  customer(id)
@@ -38,11 +38,11 @@ create table car(
 create table car_parts(
 	id 			int primary key auto_increment ,
 	name 		varchar(100),
-	type 		varchar(20),/* 类型：  比如 ，轮子　　型号则存放： 前轮  201 等：*/
-	partsNo 	varchar(100),/* 型号 */
-	positions 	varchar(200),/* 位置 */
+	type 		varchar(20) comment '类型：  比如 ，轮子　　型号则存放： 前轮  201 等',
+	partsNo 	varchar(100) comment '型号',
+	positions 	varchar(200) comment '位置',
 	description varchar(500),
-	isDelete	varchar(2),	/** 1标识已删除 **/
+	isDelete	varchar(2) comment '1标识已删除',
 	UTD1 		varchar(200),
 	UTD2 		varchar(200)
 );
@@ -53,10 +53,10 @@ create table car_parts(
 create table parts_store(
 	id 	        	int primary key auto_increment,
 	car_parts_id 	int,
-	increase_Date 	datetime,/**进货时间 **/
-	num				int,/**进货总量**/
-	unit_price 		float(9,2),/*进货单价*/
-	sell_unit_price float(9,2),/* 销售单价 选填 */
+	increase_Date 	datetime comment '进货时间',
+	num				int comment '进货总量',
+	unit_price 		float(9,2) comment '进货单价',
+	sell_unit_price float(9,2) comment '销售单价 选填',
 	description 	varchar(200),
 	isDelete		varchar(2),
 	UTD1 			varchar(200),
@@ -68,18 +68,17 @@ create table project(
 	id 				int primary key auto_increment ,
 	cust_id 		int,
 	car_id 			int,
-	projectNo		varchar(100),/*单号： 日期+ 当前的单子序号(第几个单子)：*/
+	projectNo		varchar(100) comment '单号： 日期+ 当前的单子序号(第几个单子)：',
 	projectType 	varchar(100),
 	projectName 	varchar(200),
-	mileage 		varchar(50),/** 进场里程**/
-	parts_charge	float(9,2),/** 配件总价格 **/
-	labor_charge 	float(9,2),/**若换取配件加维修，则此为维修费用 即：工时费**/
-	startDate 		datetime,/**服务开始时间**/
-	endDate 		datetime,/**服务结束时间**/
-	outServiceDate 	datetime,/**维修保质时间**/
-	chargePerson	varchar(100),/**负责人**/
-	status			varchar(10),/*当前项目的状态：已完成(付款成功，则认为该项目已完成)、未完成(缺件、不可完成、未付款、其他原因，可在备注中说明)*/
-	isdelete 		varchar(2),/**逻辑删除标志 1 标识删除**/
+	mileage 		varchar(50) comment '进场里程',
+	sum_charge		float(9,2) comment '当前服务总价格',
+	startDate 		datetime comment '服务开始时间',
+	endDate 		datetime comment '服务结束时间',
+	outServiceDate 	datetime comment '维修保质时间',
+	chargePerson	varchar(100) comment '负责人',
+	status			varchar(10) comment '当前项目的状态：已完成(付款成功，则认为该项目已完成)、未完成(缺件、不可完成、未付款、其他原因，可在备注中说明)',
+	isdelete 		varchar(2) comment '逻辑删除标志 1 标识删除',
 	description 	varchar(200),
 	UTD1 			varchar(200),
 	UTD2 			varchar(200),
@@ -87,27 +86,36 @@ create table project(
 	FOREIGN key(car_id) REFERENCES car(id)
 );
 
+
+
+
 /**
  * 配件和服务对应表 一种配件可以被多个服务使用，一个服务可以选择多个配件
  **/
  
 create table  project_parts(
 	id 				int primary key auto_increment ,
-	projectId		int,                 /**对应的服务编号**/
-	car_partStoreId	int,				/**对应的配件编号**/
-	partsName		varchar(100),		/**冗余字段**/
-	partsType 		varchar(20),		/**冗余字段**/
-	partsNo 		varchar(100),		/**冗余字段**/
-	usedNum			int,                /**当前服务使用的当前配件的个数**/
-	isdelete		varchar(2),          /**逻辑删除标志  **/
+	projectId		int comment '对应的服务编号', 
+	car_partStoreId	int comment '对应的配件编号',
+	partsName		varchar(100) comment '配件名称 冗余字段',
+	partsType 		varchar(20) comment '配件类型 冗余字段',
+	partsNo 		varchar(100) comment '配件编号 冗余字段',
+	usedNum			int comment '当前服务使用的当前配件的个数',
+	repairType		varchar(10) comment '维修类型：1：机修  2：机电 3：钣金 4：喷漆  5：备件销售',
+	labor_charge	float(9,2) comment '工时费',
+	parts_charge	float(9,2) comment '材料费',
+	isdelete		varchar(2) comment '逻辑删除标志',
 	UTD1			varchar(200),
 	UTD2			varchar(200),
 	FOREIGN key (projectId) REFERENCES project(id),
-/*	FOREIGN key (car_partsId) REFERENCES car_parts(id) */
 	FOREIGN key (car_partStoreId) REFERENCES parts_store(id)
 );
 
-
+机修
+	机电
+	钣金
+	喷漆
+	备件销售
 
 
 /** 缺件记录表 **/
@@ -116,12 +124,12 @@ create table lack_parts(
 	customerName   varchar(100),
 	phone		   varchar(50), 
 	partsName  	   varchar(100),
-	parts_num      varchar(100),/**型号**/
+	parts_num      varchar(100)  comment '型号',
 	carNum	       varchar(100),
 	createDate     datetime,
 	finishDate	   datetime,
-	needNum	       int,            /**所需数量**/
-	status 	       varchar(2),   /*缺件状态：已补充完成   未补充完成 */
+	needNum	       int comment '所需数量',
+	status 	       varchar(2)  comment '缺件状态：已补充完成   未补充完成',
 	description    varchar(200),
 	isDelete	   varchar(2),
 	UTD1	       varchar(200),
@@ -129,7 +137,14 @@ create table lack_parts(
 );
 
 
-
+/**
+服务类型：  
+	机修
+	机电
+	钣金
+	喷漆
+	备件销售
+*/
 
 
 /*

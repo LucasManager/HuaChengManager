@@ -25,7 +25,6 @@
 		</div>
 		<div class="panel-body background_F9F7F6">
 			<div class="panel border_364150 width_980  div_margin_center">
-				<form id="searchTerms" action="" method="post" class="margin_0">
 					<div class="height_40 background_364150">
 						<div class="height_40 float_left background_293846">
 							<div class="float_left">
@@ -72,13 +71,12 @@
 						<tfoot>
 							<tr>
 								<td colspan="10">
-									<button class="btn btn-primary">上一页</button>
-									<button class="btn btn-primary">下一页</button>
+									<button class="btn btn-primary" id="prePage">上一页</button>
+									<button class="btn btn-primary" id="nexPage">下一页</button>
 								</td>
 							</tr>
 						</tfoot>
 					</table>
-				</form>
 				<div style="clear: both"></div>
 			</div>
 		</div>
@@ -152,7 +150,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="customerName" class="col-sm-3 control-label">所需配件：</label>
+							<label for="customerName" class="col-sm-3 control-label">服务/配件：</label>
 							<div class="col-sm-9">
 								<button class="btn btn-info text-left" data-toggle="modal"
 									data-target="#SearchPartsModal" id="searchPartbtn">查找配件</button>
@@ -339,7 +337,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="partsType" class="col-sm-3 control-label">使用配件：</label>
+							<label for="partsType" class="col-sm-3 control-label">服务/配件：</label>
 							<div class="col-sm-9">
 								<table class="table table-hover table-bordered col-lg-3">
 									<thead>
@@ -428,7 +426,7 @@
 	var pCar = {};
 	var ppartsStore={};
 	var cacheStore={};
-	
+	 var currentPageIndex = 1;
 	function initData(){
 		project={};
 		pCustomer={};
@@ -467,6 +465,21 @@ $(document).ready(function(){
 		var p = {projectName:$("#ppName").val(),projectType:$("#ppType").val(),customer:{name:$("#pcName").val()},status:$("#searchStatus option:selected").val()};
 		loadDataGrid(p,0);	
 	});
+	
+	$("#prePage").click(function(){
+		currentPageIndex = currentPageIndex-1;
+		if(currentPageIndex<0){
+			currentPageIndex = 0;
+		}
+		var p = {projectName:$("#ppName").val(),projectType:$("#ppType").val(),customer:{name:$("#pcName").val()},status:$("#searchStatus option:selected").val()};
+		loadDataGrid(p,currentPageIndex);	
+	});
+	$("#nexPage").click(function(){
+		currentPageIndex = currentPageIndex+1;
+		var p = {projectName:$("#ppName").val(),projectType:$("#ppType").val(),customer:{name:$("#pcName").val()},status:$("#searchStatus option:selected").val()};
+		loadDataGrid(p,currentPageIndex);	
+	});
+	
 	loadDataGrid({},0);
 	$("#searchUserBtn").click(function(e){
 		findCustCar({id:null});
@@ -591,6 +604,17 @@ function loadDataGrid(project,currentPage){
 							"<td><a href='javacript:void(0)' title='修改' onclick='updateProject("+p.id+")' data-toggle='modal' data-target='#addService'> <i class='glyphicon glyphicon-edit'></i></a>"+
 							"<a href='javacript:void(0)' title='删除' onclick='deleteProject("+p.id+",this)' class='btn-margin_5'><i class='glyphicon glyphicon-trash'></i></td></tr>");
 				}
+			}
+			
+			if(data.length<10){
+				$("#nexPage").attr("disabled","true");
+			}else{
+				$("#nexPage").removeAttr("disabled");
+			}
+			if(currentPageIndex==0 ||currentPageIndex==1){
+				$("#prePage").attr("disabled","true");
+			}else{
+				$("#prePage").removeAttr("disabled");
 			}
 			$("#serviceGrid").html(content);
 		},
@@ -831,7 +855,8 @@ function deleteProject(projectId, obj) {
 }
 
 function popPrint(pp){
-	$("#content").load("/page/printPage/servicePrint.html");
+// 	$("#content").load("/page/printPage/servicePrint.html");
+	$("#content").load("project/printContent.do",{"projectId":pp});
 }
 
 function getDate(date)

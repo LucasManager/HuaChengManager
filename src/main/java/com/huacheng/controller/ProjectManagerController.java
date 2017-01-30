@@ -1,6 +1,7 @@
 package com.huacheng.controller;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -10,6 +11,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +24,7 @@ import com.huacheng.bean.Customer;
 import com.huacheng.bean.Project;
 import com.huacheng.bean.ProjectParts;
 import com.huacheng.service.IProjectManagerService;
+import com.huacheng.utils.VelocityUtils;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -106,6 +110,28 @@ public class ProjectManagerController{
 		service.updateProject(project);
 		return "{\"result\":\"success\"}";
 	}
+	
+	@RequestMapping("printContent")
+	public void printContent(String projectId,HttpServletResponse response) throws Exception{
+		PageBounds pb = new PageBounds(0, 10);;
+		Project p = new Project();
+		p.setId(Long.valueOf(projectId));
+		List<Project> projects = service.findProject(p, pb);
+		Map<String, Object> param = new HashMap<String, Object>();
+		if (CollectionUtils.isNotEmpty(projects) && projects.size()>0) {
+			p = projects.get(0);
+			param.put("customer", p.getCustomer());
+			param.put("car", p.getCar());
+			DealParts(p.getUseParts());
+			param.put("useParts", p.getUseParts());
+			param.put("money", p.getLaborCharge()+p.getPartsCharge());
+			param.put("chargePerson", p.getChargePerson());
+		}
+		System.out.println(this.getClass().getClassLoader().getResource("/").getPath());
+		String htmlByTemplate = VelocityUtils.getHTMLByTemplate(this.getClass().getClassLoader().getResource("/").getPath()+"template/servicePrint.html", param);
+		PrintWriter writer = response.getWriter();
+		writer.print(htmlByTemplate);
+	}
 
 	private PageBounds getPB(HttpServletRequest request){
 		String currentPage = request.getParameter("currentPage");
@@ -114,6 +140,18 @@ public class ProjectManagerController{
 		}
 		PageBounds page = new PageBounds(Integer.valueOf(currentPage), 10);
 		return page;
+	}
+	
+	private void DealParts(List<ProjectParts> list){
+		if (CollectionUtils.isEmpty(list)) {
+			list = new ArrayList<ProjectParts>();
+		}
+		if (list.size()<5) {
+			int i = 5-list.size();
+			for (int j = 0; j < i; j++) {
+				list.add(new ProjectParts());
+			}
+		}
 	}
 
 }

@@ -1,7 +1,12 @@
 package com.up.test;
 
+import java.io.StringWriter;
 import java.util.List;
 
+import org.apache.velocity.Template;
+import org.apache.velocity.VelocityContext;
+import org.apache.velocity.app.Velocity;
+import org.apache.velocity.app.VelocityEngine;
 import org.junit.Before;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -71,6 +76,37 @@ public class Test {
 			e.printStackTrace();
 		}
 	}
+	
+	@org.junit.Test
+	public void template(){
+		 VelocityEngine ve = new VelocityEngine();  
+//		 ve.setProperty(Velocity.RESOURCE_LOADER, "class");
+//		 ve.setProperty("class.resource.loader.class", "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");  
+		 try {
+			ve.init();
+			  Template t = ve.getTemplate("C:\\template.html", "UTF-8");  
+			  // 设置初始化数据  
+	          VelocityContext context = new VelocityContext();  
+	          context.put("name", "张三");  
+	          
+	           String[] hobbyArray={"吃饭","喝水","洗澡"};  
+	           context.put("hobby", "爱好");  
+	           context.put("hobbyArray", hobbyArray);
+	           // 设置输出  
+	            StringWriter writer = new StringWriter();  
+	            // 将环境数据转化输出  
+	            t.merge(context, writer); 
+	            
+	            String string = writer.toString();
+	            System.out.println(string);
+	            
+	            
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e);
+		}
+	}
+	
 	
 
 }

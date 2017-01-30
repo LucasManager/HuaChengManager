@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>
+.cz{
+	font-size:12.0pt; 
+	font-family:SimSun;
+}
+</style>
+</head>
+<body>
+<p>部门：<span class="cz">${department.depName}</span></p>
+<p>主管：<span class="cz">${department.manager}</span></p>
+<table>
+	<tr>
+		<td>序号</td>
+		<td>姓名</td>
+		<td>籍贯</td>
+	</tr>
+#set($i=1)
+#foreach($!staff in $!staffList)
+	<tr>
+		<td>$i</td><td><span class="cz">${staff.userName}</span></td><td><span class="cz">${staff.address}</span></td></tr>
+#set($i=$i+1)
+#end
+	</table>
+</body>
+</html>

@@ -1,0 +1,57 @@
+﻿<h1 class="text-center width_900" style="font-family:仿宋_GB2312">西安华诚汽修服务清单</h1>
+<table class="table table-bordered width_900 height_1000" style="TABLE-LAYOUT:fixed;WORD-BREAK:break-all;margin-bottom: 5px;" id="ttt" >
+    <caption class="no-space" >
+            <label class="div_width_50">客户名称：</label><label class="div_width_150 noborder" contenteditable="true" >${customer.name}</label>
+            <label class="div_width_50">联系电话：</label><label class="div_width_150 noborder" contenteditable="true">${customer.phone}</label>
+            <label class="div_width_50">车辆型号：</label><label  class="div_width_100 noborder" contenteditable="true">${car.carType}</label>
+            <label class="div_width_50">车牌号码：</label><label  class="div_width_100 noborder" contenteditable="true">${car.carNum}</label>
+    </caption>
+    <thead>
+    <tr>
+        <td class="width_300" height="30">服务项目</td>
+        <td>单位</td>
+        <td>数量</td>
+        <!-- <td>单价</td> -->
+        <!-- <td width="100">金额(元)</td> -->
+        <td class="width_300">备注</td>
+    </tr>
+    </thead>
+    <tbody id="servicePrintContent">
+        #foreach($!part in $!useParts)
+        #if(!${part.id}||${part.id}==0)
+        <tr>
+            <td height="30"></td>
+            <td></td>
+            <td></td>
+            <!-- <td>${part.partsName}</td>
+            <td>${part.partsName}</td> -->
+            <td></td>
+        </tr>
+        #else
+        <tr>
+            <td height="30">${part.partsName}</td>
+            <td>件</td>
+            <td>${part.useNum}</td>
+            <!-- <td>${part.partsName}</td>
+            <td>${part.partsName}</td> -->
+            <td>${part.partsName}</td>
+        </tr>
+        #end
+    #end
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>合计应收</td>
+            <td contenteditable="true" colspan="2">${money}</td>
+            <td style="text-align: left">实收：<label class="div_width_100 height-auto" contenteditable="true">${money}</label>(元)</td>
+        </tr>
+        <tr>
+            <td style="text-align: left">开单人：<label class="div_width_150 height-auto" contenteditable="true">${chargePerson}</label></td>
+            <td style="text-align: left" colspan="3">服务技师：<label class="div_width_150 height-auto" contenteditable="true">${chargePerson}</label>&nbsp;&nbsp;&nbsp;客户签名：<label class="div_width_150 height-auto" contenteditable="true"></label></td>
+        </tr>
+    </tfoot>
+</table>
+<div class="text-left top" style="color:#737373">
+    <div style="display: inline">地址：贞观路与常青二路十字向东二十米华诚汽配服务中心&nbsp;&nbsp;&nbsp;</div>
+    联系电话：13609250056&nbsp;&nbsp;18790445611
+</div>

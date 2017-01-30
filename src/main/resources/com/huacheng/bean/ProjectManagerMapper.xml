@@ -32,6 +32,7 @@
 	<resultMap type="Car" id="carMap">
 		<id property="id" column="caid" />
 		<result property="carNum" column="carNum" />
+		<result property="carType" column="carType" />
 	</resultMap>
 	<resultMap type="ProjectParts" id="pparts">
 		<id property="id" column="ppid" />
@@ -50,7 +51,7 @@
 <!-- 		where p.cust_id= cu.id and p.car_id = ca.id and p.id = pp.projectId -->
 		select p.id pid,p.projectName,p.projectNo,p.projectType,p.mileage,p.parts_charge,
 		p.labor_charge,p.startDate,p.endDate,p.chargePerson,p.description,
-		cu.id cuid,cu.name cuname,cu.phone,ca.id caid,ca.carNum,
+		cu.id cuid,cu.name cuname,cu.phone,ca.id caid,ca.carNum,ca.carType,
 		pp.id ppid,pp.usedNum,pp.partsName,pp.partsType,pp.partsNo
 		from huachengdb.project p left join huachengdb.customer cu on p.cust_id = cu.id and (cu.isdelete!='1' or cu.isdelete is null)
 		left join huachengdb.car ca on p.car_id = ca.id and (ca.isdelete!='1' or ca.isdelete is null) left join huachengdb.project_parts pp on p.id=pp.projectId and (pp.isdelete!='1' or pp.isdelete is null)
@@ -76,7 +77,7 @@
 			</when>
 			<otherwise></otherwise>
 		</choose>
-		order by p.startDate asc
+		order by p.startDate desc
 	</select>
 	<insert id="addProject" parameterType="Project" keyProperty="id">
 		insert into project (cust_id,car_id,projectNo,projectType,projectName,mileage,parts_charge,labor_charge,startDate,endDate,outServiceDate,chargePerson,status,description)
