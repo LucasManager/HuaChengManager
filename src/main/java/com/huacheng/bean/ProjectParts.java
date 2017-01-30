@@ -15,6 +15,7 @@ public class ProjectParts implements Serializable {
 	
 	private Long id;
 	private Long projectId;
+	private Long pStoreId;
 	private PartsStore partsStore;
 	private int useNum;
 	private String partsName;
@@ -63,5 +64,11 @@ public class ProjectParts implements Serializable {
 
 	public void setProjectId(Long projectId) {
 		this.projectId = projectId;
+	}
+	public Long getpStoreId() {
+		return pStoreId;
+	}
+	public void setpStoreId(Long pStoreId) {
+		this.pStoreId = pStoreId;
 	}
 }
